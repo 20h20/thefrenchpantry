@@ -1,0 +1,20 @@
+@charset "UTF-8";
+/*!
+ * Theme Name: Thomas Gelso
+ * Description: Enjoy a customized culinary experience with a Private Chef at home.
+ * Version: 1.0
+ * Author: Julien B.
+ *
+ * License: MIT
+ * License URI: http://opensource.org/licenses/mit-license.php
+ */
+ 
+ @keyframes marquee {
+    0% {
+      transform: translate3d(calc(-25% + 20vw), 0, 0);
+    }
+  
+    100% {
+        transform: translate3d(calc(-50% + 20vw), 0, 0);
+    }
+}

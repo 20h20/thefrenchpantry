@@ -1,0 +1,191 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+TEXT PICTURE COMPONENT
+------------------------------- */
+.cbo-textpicture {
+  position: relative;
+  overflow: hidden;
+
+  &:after{
+    content: '';
+    background: url("../../../library/img/orange.svg") no-repeat center; 
+    width: 5.25rem;
+    height: 5.6875rem;
+    position: absolute;
+    bottom: 0;
+    right: -1.375rem;
+  }
+  .textpicture-picture{
+    width: 100%;
+    margin-bottom: 3.125rem;
+    display: flex;
+    position: relative;
+
+    .textpicture-main{
+      width: 80%;
+      padding-bottom: 100%;
+      overflow: hidden;
+      border-radius: $borderstandard;
+    }
+    .textpicture-secondary{
+      position: absolute;
+      bottom: -3.125rem;
+      right: 0;
+      padding-bottom: 50%;
+      width: 50%;
+    }
+  }
+  .textpicture-content{
+    .content-title{
+      margin-bottom: 1.25rem;
+      position: relative;
+
+      &:before{
+        content: '';
+        background: url("../../../library/img/oignon.svg") no-repeat center; 
+        width: 5.25rem;
+        height: 5.9375rem;
+        position: absolute;
+        bottom: -1.875rem;
+        left: -1.875rem;
+      }
+    }
+  }
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min) {
+  .cbo-textpicture {
+    &:after{
+      width: 9.375rem;
+      height: 10.125rem;
+    }
+    .textpicture-inner{
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-bottom: 13.125rem;
+    }
+    .textpicture-picture{
+      width: 50%;
+      margin: 0;
+
+      img{
+        position: absolute;
+      }
+      .textpicture-main{
+        width: calc(100% - 6.25rem);
+        will-change: transform;
+        transition: transform 0.1s ease-out;
+      }
+      .textpicture-secondary{
+        width: 12.5rem;
+        height: 12.5rem;
+        bottom: -6.25rem;
+
+        img{
+          will-change: transform;
+          transition: transform 0.1s ease-out;
+        }
+      }
+    }
+    .textpicture-content {
+      width: 48%;
+      padding-top: 4.375rem;
+
+      .content-title{
+        margin-bottom: 0;
+
+        &:before{
+          bottom: 2.375rem;
+          left: -2.5rem;
+        }
+      }
+      .content-text{
+        padding-left: 1.875rem;
+      }
+    }
+    &.textpicture--reverse{
+      .textpicture-inner{
+        flex-direction: row-reverse;
+      }
+      .textpicture-picture{
+        .textpicture-main{
+          margin-left: 6.25rem;
+        }
+        .textpicture-secondary{
+          right: inherit;
+          left: 0;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min) {
+  .cbo-textpicture {
+    .textpicture-inner{
+      margin-bottom: 15rem;
+    }
+    .textpicture-picture{
+      .textpicture-main{
+        width: calc(100% - 9.375rem);
+      }
+      .textpicture-secondary{
+        width: 18.75rem;
+        height: 18.75rem;
+        bottom: -9.375rem;
+      }
+    }
+    .textpicture-content {
+      padding-top: 8.75rem;
+
+      .content-title{
+        &:before{
+          left: -3.75rem;
+          width: 6.5rem;
+          height: 7.1875rem;
+        }
+      }
+      .content-text{
+        padding-left: 4.375rem;
+      }
+    }
+    &.textpicture--reverse{
+      .textpicture-picture{
+        .textpicture-main{
+          margin-left: 9.375rem;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+XLARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-xl-min) {
+  .cbo-textpicture {
+    .textpicture-inner{
+      margin-bottom: 20.625rem;
+    }
+    .textpicture-content {
+      padding-top: 11.25rem;
+
+      .content-title{
+        &:before{
+          left: -4.75rem;
+          width: 8.75rem;
+          height: 9.8125rem;
+          bottom: 4.25rem;
+        }
+      }
+      .content-text{
+        padding-left: 6.875rem;
+      }
+    }
+  }
+}

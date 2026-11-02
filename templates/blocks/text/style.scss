@@ -1,0 +1,23 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+TEXT COMPONENT
+------------------------------- */
+.cbo-text{
+    &.text--blue{
+        background: $colorblue;
+        color: $colorwhite;
+    }
+    &.text--white{
+        background: $colorwhite;
+    }
+    &.text--yellow{
+        background: $coloryellow;
+    }
+    &.text--small{
+        .text-inner.cbo-container{
+            max-width: 62.5rem;
+            margin: 0 auto;
+        }
+    }
+}

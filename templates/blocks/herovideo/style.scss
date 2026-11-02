@@ -1,0 +1,70 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+HERO VIDEO COMPONENT
+------------------------------- */
+.cbo-herovideo{
+    overflow: hidden;
+    position: relative;
+    border-radius: $borderstandard;
+    width: calc(100% - 2.5rem);
+    margin: 1.25rem 0 0 1.25rem;
+    height: calc(100vh - 2.5rem);
+
+    &.herovideo--adaptativeheight{
+        height: auto;
+    }
+    .herovideo-picture{
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+
+        video{
+            height: 120%;
+            display: block;
+            will-change: transform;
+            backface-visibility: hidden;
+            transform-origin: center center;
+        }
+    }
+    .herovideo-inner{
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .herovideo-content{
+        text-align: center;
+        color:$colorwhite;
+
+        .content-chapo{
+            margin: 1.875rem auto 0;
+            max-width: 37.5rem;
+        }
+        .button-container{
+            margin-top: 1.875rem;
+        }
+    }
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+    .cbo-herovideo{
+        border-radius: $borderbig;
+    }
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+    .cbo-herovideo{
+        .cbo-container.container--padding{
+            padding-top: 14.375rem;
+        }
+    }
+}

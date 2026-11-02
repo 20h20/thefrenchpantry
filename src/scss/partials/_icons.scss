@@ -1,0 +1,35 @@
+// Custom template
+
+@font-face {
+    font-family:"icons";
+    src: url("../iconfont/icons.eot?ff82ac05d6cd487ed76a2ed9cd4bae2d");
+    src: url("../iconfont/icons.eot?ff82ac05d6cd487ed76a2ed9cd4bae2d#iefix") format("embedded-opentype"),
+		url("../iconfont/icons.woff?ff82ac05d6cd487ed76a2ed9cd4bae2d") format("woff"),
+		url("../iconfont/icons.ttf?ff82ac05d6cd487ed76a2ed9cd4bae2d") format("truetype"),
+		url("../iconfont/icons.svg?ff82ac05d6cd487ed76a2ed9cd4bae2d#icons") format("svg");
+    font-weight:normal;
+    font-style:normal;
+    font-display:swap;
+    }
+
+.icon {
+    font-family:"icons";
+    display:inline-block;
+    font-style:normal;
+    speak:none;
+    -webkit-font-smoothing:antialiased;
+    font-size:1em;
+    line-height:1em;
+    vertical-align:baseline;
+    }
+
+// Icons
+.icon--arrow-next:before { content:"\f101"; }
+.icon--cross:before { content:"\f102"; }
+.icon--facebook:before { content:"\f103"; }
+.icon--instagram:before { content:"\f104"; }
+.icon--logo-jb:before { content:"\f105"; }
+.icon--more:before { content:"\f106"; }
+.icon--star:before { content:"\f107"; }
+.icon--success:before { content:"\f108"; }
+.icon--warning:before { content:"\f109"; }

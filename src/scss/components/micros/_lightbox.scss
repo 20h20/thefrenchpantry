@@ -1,0 +1,129 @@
+.fancybox-opened {
+	z-index: 8030;
+}
+.fancybox-inner {
+	border-radius: 0.5rem;
+	overflow: hidden !important;
+}
+.fancybox-image {
+	display: block;
+	max-width: 100%;
+	max-height: 100%;
+}
+.fancybox-lock body {
+    overflow: hidden !important;
+}
+.fancybox-overlay {
+	top: 0;
+	left: 0;
+	overflow: hidden;
+	display: none;
+	z-index: 8010;
+	width: 100% !important;
+    height: 100% !important;
+	background: rgba($colorblack,.9);
+	
+	&.fancybox-overlay-fixed {
+		position: fixed;
+	}
+}
+.fancybox-wrap,
+.fancybox-skin,
+.fancybox-outer,
+.fancybox-inner,
+.fancybox-image,
+.fancybox-wrap iframe,
+.fancybox-wrap object,
+.fancybox-nav,
+.fancybox-nav span,
+.fancybox-tmp{
+	padding: 0;
+	margin: 0;
+	border: 0;
+	outline: none;
+	vertical-align: top;
+}
+.fancybox-nav {
+	position: fixed;
+	top: 50%;
+	margin-top: -1.25rem;
+	width: 2.5rem;
+	height: 2.5rem;
+	cursor: pointer;
+	display: flex;
+    align-items: center;
+
+	&.fancybox-prev,
+	&.fancybox-next{
+		&:before{
+			font-family: icons;
+			font-size: 1.125rem;
+			width: 2.5rem;
+			height: 2.5rem;
+			border-radius: 50%;
+			color: $colorwhite;
+			position: absolute;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			transition: .5s all;	
+		}
+	}
+	&.fancybox-prev {		
+		left: 2.5rem;
+
+		&:before{
+			content: "\f101";
+			transform: rotate(180deg);
+		}
+	}
+	&.fancybox-next {
+		right: 2.5rem;
+
+		&:before{
+			content: "\f101";
+		}
+	}
+}
+.fancybox-close {
+	position: fixed;
+	top: 2.5rem;;
+	right: 2.5rem;;
+	z-index: 4;
+	display: flex;
+	justify-content: center;
+	padding: 0;
+	border-radius: 99rem;
+	background: none;
+	border: 0;
+	width: 3.125rem;
+	height: 3.125rem;
+	transition:all .3s;
+
+	&:after{
+		content: '';
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		top:0;
+		left: 0;
+		border-radius: 99rem;
+		transform: scale(1);
+		box-shadow: 0 0 0 2px rgba($colorwhite, .6) inset;
+		transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1);
+	}
+	&:before{
+		font-family:"icons";
+		content: '\f102';
+		font-size: 0.875rem;
+		color: $colorwhite;
+		position: relative;
+		display: flex;
+		align-items: center;
+	}
+	&:hover{
+		&:after{
+			transform: scale(1.2);
+		}
+	}
+}

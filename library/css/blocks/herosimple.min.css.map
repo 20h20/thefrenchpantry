@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../templates/blocks/herosimple/style.scss","../../../src/scss/partials/_variables.scss"],"names":[],"mappings":"AAEA;AAAA;AAAA;AAGA;EACI;EACA;EACA,eCgCc;ED/Bd;EACA;EACA;;AAEA;EACI;;AAEJ;EACI;EACA,OCXO;;ADaP;EACI;EACA;;;AAKZ;AAAA;AAAA;AAGA;EACI;IACI,eCjBK;;EDmBL;IACI;;;AAKZ;AAAA;AAAA;AAGA;EAEQ;IACI","file":"herosimple.min.css"}

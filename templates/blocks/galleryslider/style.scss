@@ -1,0 +1,130 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+GALLERY SLIDER COMPONENT
+------------------------------- */
+.cbo-galleryslider{
+  text-align: center;
+
+  .galleryslider-inner.cbo-container{
+    overflow: hidden;
+    max-width: 100%;
+    padding: 0;
+  }
+  .galleryslider-title{
+    max-width: 75rem;
+    margin: 0 auto 1.875rem;
+    padding: 0.25rem 1.25rem 0;
+    position: relative;
+    display: table;
+
+    &:after{
+      content: '';
+      background: url("../../../library/img/galleryslider-navet.svg") no-repeat center;
+      opacity: .7;
+      width: 4.25rem;
+      height: 5.6875rem;
+      position: absolute;
+      top: -0.3125rem;
+      right: -1.25rem;
+      background-size: contain;
+    }
+  }
+  .galleryslider-list{
+    margin-top: 3.125rem;
+
+    &:not(.slick-slider){
+      display: flex;
+      overflow: hidden;
+
+      .list-el{
+        width: 100%;
+        min-width: 100%;
+        margin: 0 0.625rem;
+      }
+    }
+    .slick-list{
+      .slick-track{
+        margin: 0 -0.625rem;
+
+        .slick-slide{
+          margin: 0 0.625rem;
+        }
+      }
+    }
+    .list-el{
+      .el-inner {
+        padding-bottom: 120%;
+        border-radius: $bordersmall;
+        overflow: hidden;
+
+        img{
+          top: -20%;
+          height: 130%;
+        }
+        .lightbox{
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+  .cbo-galleryslider{
+    .galleryslider-list{
+      &:not(.slick-slider){
+        .list-el{
+          width: 50%;
+          min-width: 50%;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+  .cbo-galleryslider{
+    .galleryslider-title{
+      padding-top: 1.25rem;
+  
+      &:after{
+        width: 8rem;
+        height: 11.25rem;
+      }
+    }
+    .galleryslider-list{
+      &:not(.slick-slider){
+        .list-el{
+          width: 33.33333%;
+          min-width: 33.33333%;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+  .cbo-galleryslider{
+    .galleryslider-list{
+      &:not(.slick-slider){
+        .list-el{
+          width: 25%;
+          min-width: 25%;
+        }
+      }
+    }
+  }
+}

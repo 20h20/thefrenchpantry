@@ -1,0 +1,155 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+ACCORDION SECTION COMPONENT
+------------------------------- */
+.cbo-accordion{
+	position: relative;
+
+	&:before,
+	&:after{
+		content: '';
+		background-size: contain;
+		position: absolute;
+	}
+	&:before{
+		background: url("../../../library/img/accordion-leaf.svg") no-repeat center;
+		width: 10rem;
+		height: 8.5rem;
+		top: -3.75rem;
+		left: -1.875rem;
+	}
+	&:after{
+		background: url("../../../library/img/accordion-navet.svg") no-repeat center;
+		width: 3.4375rem;
+		height: 8.375rem;
+		bottom: -5.625rem;
+		right: 0;
+	}
+	.accordion-title{
+		text-align: center;
+	}
+	.accordion-list{
+		margin-top: 2.5rem;
+		position: relative;
+		z-index: 2;
+
+		.list-el{ 
+			margin: 1.875rem 0;
+			padding: 0 0 1.875rem 0;
+			display: flex;
+			align-items: center;
+			flex-wrap: wrap;
+			border-bottom: 1px solid rgba($colorblue, .2);
+			transition: all .4s;
+
+			.el-title{
+				width: 100%;
+				display: flex;
+				align-items: center;
+				cursor: pointer;
+				font-size: 1.5rem;
+				transition:.4s $easeinout;
+
+				i{
+					font-size: 1rem;
+					width: 2.5rem;
+					min-width: 2.5rem;
+					height: 2.5rem;
+					margin-right: 1.25rem;
+					border-radius: 99rem;
+					box-shadow: 0 0 0 0.0625rem $colorblue inset;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					transition:.4s $easeinout;
+				}
+				.title-inner{
+					p{
+						margin-top: 0.625rem;
+					}
+				}
+				&:hover{
+					i{
+						color: $coloryellow;
+						box-shadow: 0 0 0 2.5rem $colorblue inset;
+						transform:rotate(45deg);
+					}
+				}
+			}
+			.el-content{
+				overflow: hidden;
+				height: 0;
+				transition:.4s $easeinout;
+
+				.content-button{
+					margin-top: 1.875rem;
+				}
+			}
+			&.el--open{
+				.el-title{
+					i{
+						color: $coloryellow;
+						box-shadow: 0 0 0 2.5rem $colorblue inset;
+						transform:rotate(45deg);
+					}
+				}
+				.el-content{
+					padding-top: 1.25rem;
+					height: auto;
+				}
+			}
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min) {
+	.cbo-accordion{
+		.accordion-inner{
+			display: flex;
+			justify-content: space-between;
+			flex-wrap: wrap;
+		}
+		.accordion-title{
+			text-align: left;
+			padding-right: 3.125rem;
+			width: 35%;
+		}
+		.accordion-list{
+			margin-top: 0;
+			flex: 1;
+		}
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min) {
+	.cbo-accordion{
+		&:before{
+			top: -6.875rem;
+		}
+		&:after{
+			width: 6.25rem;
+			height: 15.5rem;
+		}
+		.accordion-title{
+			width: 50%;
+		}
+		.accordion-list{
+			.list-el{
+				margin: 1.875rem 0;
+				padding: 0 0 1.875rem 0;
+
+				&.el--open{
+					.el-content{
+						padding-top: 1.875rem;
+					}
+				}
+			}
+		}
+	}
+}

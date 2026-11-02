@@ -1,0 +1,91 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+BLOCS SIMPLE COMPONENT
+------------------------------- */
+.cbo-blocs{
+  position: relative;
+
+  .blocs-picture{
+    position: absolute;
+    left: 0;
+    width: 9.375rem;
+    top: -4.375rem;
+
+    img{
+      position: relative;
+    }
+  }
+  .blocs-title{
+    text-align: center;
+    position: relative;
+    z-index: 2;
+  }
+  .blocs-list{
+    margin-top: 3.125rem;
+
+    .list-el{
+      margin: 1.25rem 0;
+
+      .el-inner{
+        background: $colorwhite;
+        padding: 1.25rem;
+        border-radius: $bordersmall;
+        box-shadow: 0 0.1875rem 0.375rem rgba(208,199,174, .3);
+
+        .inner-title{
+            margin-bottom: 0.75rem;
+            text-align: center;
+        }
+      }
+    }
+  }
+  .button-container{
+    text-align: center;
+    margin-top: 3.125rem;
+  }
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width:$screen-sm-min) {
+  .cbo-blocs{
+    .blocs-title{
+      text-align: left;
+    }
+    .blocs-list{
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 1.875rem -0.625rem -1.25rem -0.625rem;
+
+      .list-el{
+        width: 33.3333%;
+        margin: 1.25rem 0;
+        padding: 0 0.625rem;
+
+        .el-inner{
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width:$screen-lg-min) {
+  .cbo-blocs{
+    .blocs-list{
+      margin: 0 -1.25rem -1.25rem -1.25rem;
+
+      .list-el{
+        padding: 0 1.25rem;
+
+        .el-inner{
+          padding: 2.5rem 3.125rem;
+        }
+      }
+    }
+  }
+}

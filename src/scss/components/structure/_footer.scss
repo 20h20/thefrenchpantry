@@ -1,0 +1,179 @@
+/* -------------------------------
+FOOTER COMPONENT
+------------------------------- */
+footer{
+   .footer-inner{
+      margin-bottom: 1.25rem;
+
+      a{
+         color: $colorblue;
+         transition: all .4s;
+
+         &:hover{
+            opacity: .5;
+         }
+      }
+      .footer-title{
+         font-family: $fontsecondary;
+         text-align: center;
+         font-size: 3.125rem;
+         line-height: 3.125rem;
+      }
+      .footer-button{
+         margin-top: 1.25rem;
+         text-align: center;
+
+         a{
+            &:hover{
+               opacity: 1;
+            }
+         }
+      }
+      .footer-bottom{
+         margin-top: 2.5rem;
+
+         .bottom-nav{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            ul{
+               display: flex;
+               flex-wrap: wrap;
+               justify-content: center;
+
+               li{
+                  display: flex;
+                  align-items: center;
+
+                  &:after{
+                     content: '';
+                     background: $colorblue;
+                     width: 0.3125rem;
+                     height: 0.3125rem;
+                     border-radius: 99rem;
+                     display: block;
+                     margin: -0.125rem 0.625rem 0 0.625rem;
+                  }
+                  &:last-child{
+                     &:after{
+                        display: none;
+                     }
+                  }
+               }
+            }
+         }
+         .bottom-infos{
+            text-align: center;
+            margin-top: 2.5rem;
+
+            .infos-phone,
+            .infos-mail{
+               display: block;
+            }
+            .social-list{
+               margin-top: 1.625rem;
+               display: flex;
+               justify-content: center;
+
+               a{
+                  font-size: 1.125rem;
+                  margin: 0 0.5rem;
+               }
+            }
+         }
+      }
+   }
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width:$screen-md-min) {
+   footer{
+      .footer-inner{
+         .footer-title{
+            text-align: left;
+         }
+         .footer-button{
+            text-align: left;
+         }
+         .footer-bottom{
+            display: flex;
+            justify-content: space-between;
+
+            .bottom-nav{
+               justify-content: left;
+            }
+            .bottom-infos{
+               display: flex;
+               align-items: center;
+               text-align: right;
+               margin-top: 0;
+
+               .infos-phone{
+                  display: flex;
+                  align-items: center;
+
+                  &:after{
+                     content: '';
+                     background: $colorblue;
+                     width: 0.3125rem;
+                     height: 0.3125rem;
+                     border-radius: 99re;
+                     display: block;
+                     margin: -0.125rem 0.625rem 0 0.625rem;
+                  }
+               }
+               .social-list{
+                  margin-top: 0;
+                  position: relative;
+                  align-items: center;
+
+                  &:before{
+                     content: '';
+                     background: $colorblue;
+                     width: 0.0625rem;
+                     height: 1.75rem;
+                     margin: 0 0.5rem;
+                  }
+                  a{
+                     display: flex;
+                     align-items: center;
+                     margin: 0;
+
+                     &:after{
+                        content: '';
+                        background: $colorblue;
+                        width: 0.3125rem;
+                        height: 0.3125rem;
+                        border-radius: 99rem;
+                        display: block;
+                        margin: -0.125rem 0.625rem 0 0.625rem;
+                     }
+                     &:last-child{
+                        &:after{
+                           display: none;
+                        }
+                     }
+                  }
+               }
+            }
+         }
+      }
+   }
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width:$screen-lg-min) {
+   footer{
+      .footer-inner{
+         .footer-title{
+            font-size: 9.375rem;
+            line-height: 9.375rem;
+         }
+      }
+   }
+}

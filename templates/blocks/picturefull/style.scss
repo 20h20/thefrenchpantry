@@ -1,0 +1,34 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+PICTURE FULL COMPONENT
+------------------------------- */
+.cbo-picturefull {
+  .picturefull-inner{
+    width: 100%;
+    overflow: hidden;
+
+    .picturefull-picture{
+      overflow: hidden;
+      height: 100vh;
+
+      img{
+        height: 110%;
+      }
+    }
+  }
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+  .cbo-picturefull {
+    .picturefull-inner{
+      .picturefull-picture{
+        aspect-ratio: 16/9;
+        width: 100%;
+      }
+    }
+  }
+}

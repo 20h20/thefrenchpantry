@@ -1,0 +1,50 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+HERO SIMPLE COMPONENT
+------------------------------- */
+.cbo-herosimple{
+    overflow: hidden;
+    position: relative;
+    border-radius: $borderstandard;
+    width: calc(100% - 2.5rem);
+    margin: 1.25rem 0 0 1.25rem;
+    background: $colorblue url("../../../library/img/herosimple-lemon.svg") no-repeat center bottom;
+
+    .herosimple-inner.cbo-container {
+        padding-top: 6.5625rem;
+    }
+    .herosimple-content{
+        text-align: center;
+        color:$colorwhite;
+
+        .content-chapo{
+            margin: 1.875rem auto 0;
+            max-width: 37.5rem;
+        }
+    }
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+    .cbo-herosimple{
+        border-radius: $borderbig;
+
+        .herosimple-inner.cbo-container {
+            padding-top: 11.6875rem;
+        }
+    }
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+    .cbo-herosimple{
+        .herosimple-inner.cbo-container {
+            padding-top: 13.6875rem;
+        }
+    }
+}

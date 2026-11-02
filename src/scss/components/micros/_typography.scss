@@ -1,0 +1,200 @@
+/* -------------------------------
+TYPOGRAPHY
+------------------------------- */
+@font-face {
+    font-family: 'Barbaro';
+    src: url('../fonts/Barbaro-Roman.woff2') format('woff2'),
+        url('../fonts/Barbaro-Roman.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Acumin Pro';
+    src: url('../fonts/AcuminPro-Bold.woff2') format('woff2'),
+        url('../fonts/AcuminPro-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Acumin Pro';
+    src: url('../fonts/AcuminPro-Regular.woff2') format('woff2'),
+        url('../fonts/AcuminPro-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+a{
+	text-decoration: none;
+}
+ul{
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+.cbo-title-1, .cbo-title-2, .cbo-title-3, .cbo-title-4,
+h1,h2,h3,h4,h5,h6{
+	font-family: $fontsecondary;
+	text-transform: uppercase;
+	margin: 0;
+	font-weight: normal;
+}
+
+.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
+	font-size: 54px;
+	line-height: 54px;
+}
+
+.cbo-title-2, .cbo-title-2 h1, .cbo-title-2 h2, .cbo-title-2 h3, .cbo-title-2 h4.cbo-title-2 h5, .cbo-title-2 p, .cbo-cms h2{
+	font-size: 42px;
+	line-height: 42px;
+}
+
+.cbo-title-3, .cbo-title-3 h1, .cbo-title-3h2, .cbo-title-3 h3, .cbo-title-3 h4.cbo-title-3 h5, .cbo-title-3 p, .cbo-cms h3{
+	font-size: 26px;
+	line-height: 26px;
+}
+
+.cbo-chapo{
+	font-size: 18px;
+	line-height: 20px;
+}
+
+
+.cbo-cms{
+	p{
+		margin: 1.5rem 0;
+
+		&:last-child{
+			margin-bottom: 0;
+		}
+		&:first-child{
+			margin-top: 0;
+		}
+	}
+	a{
+		&:not(.cbo-button){
+			text-decoration: underline;
+			color: $coloryellow;
+		}
+	}
+	h1,h2,h3,h4{
+		margin: 3.75rem 0 1.875rem 0;
+		color: $colorblue;
+
+		&:first-child{
+			margin-top: 0;
+		}
+	}
+	ul{
+		margin: 1.875rem 0;
+		padding-left: 0.625rem;
+
+		li{
+			position: relative;
+			padding:0 0 0 1.125rem;
+			margin-bottom: 0.875rem;
+
+			&:before{
+				content: '';
+				width: 0.25rem;
+				height: 0.25rem;
+				border-radius: 99rem;
+				background: $colorblue;
+				position: absolute;
+				left: 0;
+				top: 0.625rem;
+			}
+			&:last-child{
+				padding-bottom: 0;
+			}
+		}
+	}
+	ol{
+		padding: 0 0 0 1.25rem;
+
+		li{
+			padding:0 0 0 0.625rem;
+			margin-bottom: 0.875rem;
+			
+			&::marker{
+				color: $colorblue;
+			}
+		}
+	}
+	hr{
+		border: 0;
+		border-bottom: 1px solid rgba($colorblue, .2);
+		margin: 3.125rem 0;
+	}
+	img{
+		margin: 3.125rem auto;
+	}
+	iframe{
+		margin: 3.125rem auto;
+		display: block;
+		max-width: 100%;
+	}
+	blockquote{
+		margin: 3.125rem auto;
+		padding: 1.25rem;
+		max-width: 56.25rem;
+		background: rgba($colorblue, .1);
+		border: 0.0625rem solid rgba($colorblue, .3);
+		border-left: 0.1875rem solid rgba($colorblue, 1);
+		border-radius: 5px;
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+	.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
+		font-size: 120px;
+		line-height: 120px;
+	}
+	.cbo-title-2, .cbo-title-2 h1, .cbo-title-2 h2, .cbo-title-2 h3, .cbo-title-2 h4.cbo-title-2 h5, .cbo-title-2 p, .cbo-cms h2{
+		font-size: 62px;
+		line-height: 62px;
+	}
+	.cbo-title-3, .cbo-title-3 h1, .cbo-title-3h2, .cbo-title-3 h3, .cbo-title-3 h4.cbo-title-3 h5, .cbo-title-3 p, .cbo-cms h3{
+		font-size: 34px;
+		line-height: 34px;
+	}
+	.cbo-chapo{
+		font-size: 24px;
+		line-height: 30px;
+	}
+}
+
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+	.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
+		font-size: 150px;
+		line-height: 150px;
+	}
+	.cbo-title-2, .cbo-title-2 h1, .cbo-title-2 h2, .cbo-title-2 h3, .cbo-title-2 h4.cbo-title-2 h5, .cbo-title-2 p, .cbo-cms h2{
+		font-size: 120px;
+		line-height: 120px;
+	}
+	.cbo-title-3, .cbo-title-3 h1, .cbo-title-3h2, .cbo-title-3 h3, .cbo-title-3 h4.cbo-title-3 h5, .cbo-title-3 p, .cbo-cms h3{
+		font-size: 40px;
+		line-height: 40px;
+	}
+}
+
+/* -------------------------------
+XLARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-xl-min){
+	.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
+		font-size: 240px;
+		line-height: 240px;
+	}	
+}

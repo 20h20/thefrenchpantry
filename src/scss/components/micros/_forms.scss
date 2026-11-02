@@ -1,0 +1,168 @@
+/* -------------------------------
+FORMS & FIELDS
+------------------------------- */
+.cbo-form {
+	input[type="text"],
+	input[type="email"],
+	input[type="number"],
+	input[type="tel"],
+	input[type="password"],
+	input[type="date"],
+	select,
+	textarea {
+		font-size: 1rem;
+		background: $colorwhite;
+		border: none;
+		height: 3.75rem;
+		width: 100%;
+		padding: 0 1rem;
+		color: $colorblue;
+		border-radius: $bordersmall;
+		transition: all 0.2s cubic-bezier(0.85, 0, 0.15, 1) 0s;
+
+		&:focus,
+		&.filled{
+			border: 0.0625rem solid $colorbluedark;
+		}
+	}
+	input[type="submit"]{
+		background: $coloryellow;
+		width: 100%;
+		border: none;
+		cursor: pointer;
+		transition: all 0.5s cubic-bezier(0.85, 0, 0.15, 1) 0s;
+
+		&:hover{
+			background: $colorblue;
+		}
+	}
+	::-webkit-input-placeholder {
+		color: $colorblue;
+		opacity: .5;
+	}
+	::-moz-placeholder {
+		color: $colorblue;
+		opacity: .5;
+	}
+	:-ms-input-placeholder {
+		color: $colorblue;
+		opacity: .5;
+	}
+	fieldset{
+		display: none;
+	}
+	.form-field{
+		margin-bottom: 0.875rem;
+		width: 100%;
+
+		textarea {
+			resize: none;
+			height: 12.5rem;
+			padding: 1rem;
+			font-family: $fontprimary;
+			font-size: 1rem;
+		}
+		.field-inner {
+			width: 100%;
+		}
+		&.field--submit{
+			margin: 0;
+		}
+	}
+	.screen-reader-response{
+		display: none;
+	}
+	form{
+		.wpcf7-not-valid-tip{
+			color: $colorerror;
+			font-size: 0.75rem;
+		}
+		.wpcf7-response-output {
+			color: $colorwhite;
+			display:none;
+			width: 100%;
+			margin: 1.875rem auto 0 auto;
+			padding: 1rem;
+			font-size: 1rem;
+			border-radius: $bordersmall;
+
+			&:before{
+				font-family:"icons";
+				margin-right: 0.625rem;
+			}
+		}
+		&.invalid{
+			.wpcf7-response-output {
+				background: rgba($colorerror, .2);
+				border-left: 0.1875rem solid $colorerror;
+				display: block;
+				color: $colorerror;
+
+				&:before{
+					content:"\f109";
+				}
+			}
+		}
+		&.sent{
+			.wpcf7-response-output {
+				background: rgba($colorsuccess, .2);
+				border-left: 0.1875rem solid $colorsuccess;
+				display: block;
+				color: $colorsuccess;
+
+				&:before{
+					content:"\f108";
+				}
+			}
+		}
+		&.submitting{
+			&:before {
+				z-index: 99;
+				content: "";
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				width: 2.5rem;
+				height: 2.5rem;
+				margin: -1.25rem 0 0 -1.25rem;
+				border: 0.4375rem solid rgba($coloryellow, 0.3);
+				border-top-color: $coloryellow;
+				border-radius: 50%;
+				animation: spin 1s linear infinite;
+			}
+			.form-field{
+				opacity: .2;
+			}
+		}
+		@keyframes spin {
+			from { transform: rotate(0deg); }
+			to { transform: rotate(360deg); }
+		}
+	}
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min) {
+	.cbo-form {
+		input[type="submit"]{
+			width: auto;
+		}
+		form{
+			display: flex;
+			flex-wrap: wrap;
+			margin: 0 -0.625rem;
+
+			.wpcf7-response-output{
+				width: calc(100% - 0.875rem);
+			}
+		}
+		.form-field{
+			padding: 0 0.4375rem;
+
+			&.field--half{
+				width: 50%;
+			}
+		}
+	}
+}

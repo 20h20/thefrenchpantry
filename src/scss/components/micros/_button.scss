@@ -1,0 +1,52 @@
+/* -------------------------------
+BUTTON COMPONENT
+------------------------------- */
+.button-container{
+  margin: -0.3125rem;
+
+  .cbo-button{
+    margin: 0.3125rem;
+  }
+}
+.cbo-button,
+input[type="submit"]{
+  box-shadow: 0 0 0 0rem $coloryellow inset;
+  background: $coloryellow;
+  color: $colorwhite;
+  border-radius: 1584px;
+  height: 3.75rem;
+  padding: 0 1.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  min-width: 12.5rem;
+  transition: all .4s;
+
+  &:hover{
+    background: $colorblue;
+  }
+  i{
+    margin-right: 0.625rem;
+  }
+  &.button--border{
+    background: none;
+    box-shadow: 0 0 0 0.0625rem $coloryellow inset;
+    color: $coloryellow;
+
+    &:hover{
+      background: $coloryellow;
+      color: $colorwhite;
+    }
+  }
+  &.button--borderblue{
+    background: none;
+    box-shadow: 0 0 0 0.0625rem $colorblue inset;
+    color: $colorblue;
+
+    &:hover{
+      background: $colorblue;
+      color: $colorwhite;
+    }
+  }
+}

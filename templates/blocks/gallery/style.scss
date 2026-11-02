@@ -1,0 +1,147 @@
+@import "../../../src/scss/partials/variables";
+
+/* -------------------------------
+GALLERY COMPONENT
+------------------------------- */
+.cbo-gallery{
+  background: $colorblue;
+  position: relative;
+  min-height: 200vh;
+  overflow: hidden;
+
+  .gallery-inner{
+    padding: 0 1.25rem;
+    position: absolute;
+    top: -10vh;
+    bottom: -10vh;
+    left: 0;
+    right: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+  .gallery-title {
+    font-size: 6.875rem;
+    line-height: 8.75rem;
+    overflow: hidden;
+    position: sticky;
+    top: 50%;
+    display: flex;
+    justify-content: center;
+    z-index: 2;
+    color: transparent;
+
+    .title-wrapper {
+      display: flex;
+      -webkit-text-stroke: 1px rgba($colorwhite, .5);
+      font-family: $fontsecondary;
+      animation: marquee 15s linear infinite;
+
+      span {
+        margin: 0 3.125rem;
+        width: max-content;
+      }
+    }
+  }
+  .gallery-list {
+    display: flex;
+    flex-wrap: wrap;
+
+    .list-el {
+      width: 50%;
+      padding: 0.625rem;
+      z-index: 2;
+
+      .el-inner {
+        padding-bottom: 120%;
+        overflow: hidden;
+        border-radius: $bordersmall;
+
+        .parallax-img {
+          width: 100%;
+          height: 120%;
+        }
+        .lightbox{
+          display: block;
+          width: 100%;
+          height: 100%;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+      &:nth-child(2n + 2) {
+        margin-top: 1.875rem;
+        z-index: 1;
+      }
+    }
+  }
+}
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min){
+  .cbo-gallery{
+    .gallery-inner{
+      padding: 0 1.875rem;
+    }
+    .gallery-list {
+      .list-el {
+        width: 33.3333%;
+
+        &:nth-child(2n + 2) {
+          margin-top:auto;
+          z-index: 3;
+        }
+        &:nth-child(3n + 2) {
+          z-index: 1 !important;
+        }
+      }
+    }
+  }
+}
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min){
+  .cbo-gallery{
+    .gallery-title {
+      font-size: 9.375rem;
+      line-height: 11.25rem;
+    }
+    .gallery-list {
+      display: flex;
+      flex-wrap: wrap;
+    }
+  }
+}
+/* -------------------------------
+LARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-lg-min){
+  .cbo-gallery{
+    .gallery-inner{
+      padding: 0 1.875rem;
+    }
+    .gallery-title {
+      font-size: 15rem;
+      line-height: 17.5rem;
+    }
+    .gallery-list {
+      .list-el {
+        padding: 1.25rem;
+      }
+    }
+  }
+}
+/* -------------------------------
+XLARGE SCREENS
+------------------------------- */
+@media (min-width: $screen-xl-min){
+  .cbo-gallery{
+    .gallery-list {
+      .list-el {
+        padding: 1.875rem;
+      }
+    }
+  }
+}
