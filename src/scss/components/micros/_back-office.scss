@@ -2,6 +2,13 @@
 BACK OFFICE COMPONENT
 ------------------------------- */
 .editor-styles-wrapper{
+	.is-root-container.block-editor-block-list__layout > .block-editor-block-list__block,
+	.editor-visual-editor__post-title-wrapper > .wp-block{
+		max-width: 111.25rem;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
 	.block-editor-block-list__layout{
 		background: rgba($coloryellow, .1);
 		color: $colorblue;

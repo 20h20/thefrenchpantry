@@ -7,7 +7,7 @@ html {
 }
 body {
 	&:not(.wp-admin){
-		background: red;
+		background: rgba($coloryellow, .1);
 		font-size: 1rem;
 		line-height: 1.5rem;
 		font-family: $fontprimary;

@@ -55,6 +55,24 @@
 
 
 	/* ****************** */
+	/* Load editor styles */
+	// Depuis WP 7.0 l'éditeur est toujours dans une iframe : seuls les styles
+	// chargés via enqueue_block_assets y sont injectés (admin_print_styles n'y arrive pas).
+	function cbo_editor_styles() {
+		if (!is_admin()) {
+			return;
+		}
+
+		$global_css_file = get_template_directory() . '/library/css/style.min.css';
+		wp_enqueue_style('cbo-editor-global', get_template_directory_uri() . '/library/css/style.min.css', array(), file_exists($global_css_file) ? filemtime($global_css_file) : null);
+
+		$blocks_css_file = get_template_directory() . '/library/css/gutenberg.min.css';
+		wp_enqueue_style('cbo-editor-blocks', get_template_directory_uri() . '/library/css/gutenberg.min.css', array('cbo-editor-global'), file_exists($blocks_css_file) ? filemtime($blocks_css_file) : null);
+	}
+	add_action('enqueue_block_assets', 'cbo_editor_styles');
+
+
+	/* ****************** */
 	/* Load admin styles */
 	function admin_css() {
 		$admin_handle = 'gutenberg-styles';

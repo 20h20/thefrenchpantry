@@ -156,12 +156,19 @@ SMALL SCREENS
 			.wpcf7-response-output{
 				width: calc(100% - 0.875rem);
 			}
+			.wpcf7-turnstile{
+				order: 2;
+				padding: 0 0.4375rem;
+			}
 		}
 		.form-field{
 			padding: 0 0.4375rem;
 
 			&.field--half{
 				width: 50%;
+			}
+			&.field--submit{
+				order: 3;
 			}
 		}
 	}
