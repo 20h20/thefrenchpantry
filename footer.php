@@ -59,7 +59,7 @@
 					<?php endif; ?>
 
 					<?php if ( $mail ) : ?>
-						<a class="infos-mail slide-up" href="mailto:<?php echo antispambot( $mail, 1 ); // email déjà nettoyé par sanitize_email() ?>" itemprop="email">
+						<a class="infos-mail slide-up" href="mailto:<?php echo antispambot( $mail, 1 ); ?>" itemprop="email">
 							<?php echo antispambot( $mail ); ?>
 						</a>
 					<?php endif; ?>
@@ -77,6 +77,8 @@
 			</div>
 		</div>
 	</footer>
+
+	<?php get_template_part( 'templates/parts/popin/template' ); ?>
 
 	<?php wp_footer(); ?>
 </body>

@@ -26,3 +26,16 @@ KEYFRAMES
 	opacity:1;
 	transform: translate(0,0) scale(1);
 }
+
+@keyframes popinIn {
+	from { opacity: 0; transform: translateY(1.25rem) scale(.98); }
+	to   { opacity: 1; transform: none; }
+}
+@keyframes popinOut {
+	from { opacity: 1; transform: none; }
+	to   { opacity: 0; transform: translateY(1.25rem) scale(.98); }
+}
+@keyframes popinFade {
+	from { opacity: 0; }
+	to   { opacity: 1; }
+}

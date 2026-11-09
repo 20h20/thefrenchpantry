@@ -51,7 +51,8 @@ module.exports = function (grunt) {
         map: false,
         processors: [
           require("autoprefixer")({ overrideBrowserslist: "last 3 versions" }),
-          require("cssnano")()
+          // reduceIdents: false -> garde les noms des @keyframes (évite les collisions entre fichiers CSS)
+          require("cssnano")({ reduceIdents: false })
         ]
       },
       blocks: {
@@ -135,7 +136,7 @@ module.exports = function (grunt) {
         tasks: ["sass:blocks", "postcss:blocks", "concat:gutenberg"]
       },
       global: {
-        files: ["<%= path_src %>**/*.scss"],
+        files: ["<%= path_src %>**/*.scss", "templates/parts/**/*.scss"],
         tasks: ["sass:global", "postcss:global"]
       },
       js: {

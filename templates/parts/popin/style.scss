@@ -1,0 +1,108 @@
+/* -------------------------------
+POPIN COMPONENT
+------------------------------- */
+.cbo-popin {
+	padding: 0;
+	border: none;
+	border-radius: $borderbig;
+	background: $colorbeige;
+	color: $colorblue;
+	width: calc(100% - 2.5rem);
+	max-width: 56.25rem;
+	max-height: calc(100dvh - 2.5rem);
+	overflow: hidden;
+	box-shadow: 0 1.25rem 3.75rem rgba($colorblack, .3);
+
+	&::backdrop {
+		background: rgba($colorbluedark, .8);
+	}
+
+	&[open] {
+		animation: popinIn .4s $easeinout both;
+
+		&::backdrop {
+			animation: popinFade .4s ease both;
+		}
+	}
+
+	&.popin--closing {
+		animation: popinOut .3s ease both;
+
+		&::backdrop {
+			animation: popinFade .3s ease reverse both;
+		}
+	}
+
+	.popin-inner {
+		display: flex;
+		flex-direction: column;
+		max-height: calc(100dvh - 2.5rem);
+		overflow-y: auto;
+		position: relative;
+
+		.popin-close {
+			position: absolute;
+			top: 0.75rem;
+			right: 0.75rem;
+			z-index: 2;
+			width: 2.75rem;
+			height: 2.75rem;
+			border-radius: 99rem;
+			background: $colorwhite;
+			color: $colorblue;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 0.875rem;
+			cursor: pointer;
+			transition: all .4s;
+
+			&:hover {
+				background: $coloryellow;
+				color: $colorwhite;
+			}
+		}
+		.popin-picture {
+			height: 12.5rem;
+		}
+		.popin-content {
+			padding: 2.5rem 1.25rem 1.875rem;
+		}
+	}	
+}
+
+/* -------------------------------
+SMALL SCREENS
+------------------------------- */
+@media (min-width: $screen-sm-min) {
+	.cbo-popin {
+		.popin-inner {
+			flex-direction: row;
+
+			.popin-picture {
+				width: 45%;
+				height: auto;
+				min-height: 25rem;
+			}
+
+			.popin-content {
+				flex: 1;
+				align-self: center;
+				padding: 3.75rem 2.5rem;
+			}
+		}		
+	}
+}
+
+/* -------------------------------
+MEDIUM SCREENS
+------------------------------- */
+@media (min-width: $screen-md-min) {
+	.cbo-popin {
+		.popin-inner {
+			.popin-content {
+				padding: 60px;
+			}
+		}
+	}
+}

@@ -364,6 +364,67 @@ $(window).on( 'scroll', function(){
 			});
 
 
+			/////////////////// POPIN (1 fois par session) ///////////////////
+			(function () {
+				var popin = document.getElementById('cbo-popin');
+				if (!popin || typeof popin.showModal !== 'function') return;
+
+				var storageKey = 'cbo-popin-' + popin.getAttribute('data-popin-id');
+				var delay = parseInt(popin.getAttribute('data-popin-delay'), 10) || 0;
+
+				// sessionStorage peut être indisponible (navigation privée, cookies bloqués)
+				function isSeen() {
+					try { return sessionStorage.getItem(storageKey) === '1'; } catch (e) { return false; }
+				}
+				function markSeen() {
+					try { sessionStorage.setItem(storageKey, '1'); } catch (e) {}
+				}
+
+				if (isSeen()) return;
+
+				function closePopin() {
+					if (!popin.open || popin.classList.contains('popin--closing')) return;
+					popin.classList.add('popin--closing');
+					var done = function () {
+						popin.classList.remove('popin--closing');
+						popin.close();
+					};
+					var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+					reduceMotion ? done() : setTimeout(done, 300);
+				}
+
+				// Marqué comme vu dès l'ouverture : ne se rouvre pas au changement de page
+				setTimeout(function () {
+					if (isSeen()) return;
+					popin.showModal();
+					markSeen();
+					$('html').addClass('html--hidden');
+				}, delay * 1000);
+
+				popin.addEventListener('close', function () {
+					$('html').removeClass('html--hidden');
+				});
+
+				// Échap : on garde l'animation de sortie
+				popin.addEventListener('cancel', function (e) {
+					e.preventDefault();
+					closePopin();
+				});
+
+				// Bouton fermer / bouton CTA
+				popin.querySelectorAll('[data-popin-close]').forEach(function (el) {
+					el.addEventListener('click', function () {
+						closePopin();
+					});
+				});
+
+				// Clic sur le fond (backdrop)
+				popin.addEventListener('click', function (e) {
+					if (e.target === popin) closePopin();
+				});
+			})();
+
+
 			/////////////////// SMOOTHSCOLL ///////////////////
 			CBO_Smoothscroll.init();
 
