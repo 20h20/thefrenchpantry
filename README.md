@@ -32,3 +32,4 @@
 
 ## Prod 
 - https://thefrenchpantryvt.com/
+- Pour déployer en production : git checkout main puis git merge develop puis, pour le commit, :wq puis git push origin main.
