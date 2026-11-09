@@ -130,6 +130,5 @@
 		return $block_content;
 	}
 	add_filter( 'render_block', 'cbo_apply_block_anchor', 10, 2 );
-
    
 ?>
