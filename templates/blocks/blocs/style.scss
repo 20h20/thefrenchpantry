@@ -6,6 +6,19 @@ BLOCS SIMPLE COMPONENT
 .cbo-blocs{
   position: relative;
 
+  .blocs-picture{
+    position: absolute;
+    left: 0;
+    width: 9.375rem;
+    top: -4.375rem;
+
+    img{
+      position: relative;
+      width: 100%;
+      height: auto;
+    }
+  }
+
   .blocs-title{
     position: relative;
     z-index: 2;
