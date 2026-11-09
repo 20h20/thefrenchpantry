@@ -1,7 +1,10 @@
 <?php
-	$title	= get_field('cta_title');
-	$chapo	= get_field('cta_chapo');
-	$form	= get_field('cta_form');
+
+defined( 'ABSPATH' ) || exit;
+$title	= get_field('cta_title');
+$chapo	= get_field('cta_chapo');
+$form	= get_field('cta_form');
+
 ?>
 
 <section class="cbo-cta">
@@ -21,7 +24,9 @@
 
 			<?php if($form): ?>
 				<div class="content-form cbo-form slide-up">
-					<?php echo $form ?>
+					<?php
+						echo $form;
+					?>
 				</div>
 			<?php endif; ?>
 		</div>

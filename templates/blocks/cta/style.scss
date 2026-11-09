@@ -26,16 +26,77 @@ CALL TO ACTION COMPONENT
             position: relative;
             z-index: 1;
         }
+
         .content-form{
             margin-top: 1.875rem;
+            position: relative;
+            z-index: 1;
 
-            form{
-                input{
-                    box-shadow: 0 0 0 0.0625rem $colorblue inset;
+            form.sib_signup_form{
+                display: block;
+                margin: 0 auto;
+                padding: 0 !important;
+                max-width: 40rem;
+            }
+            [class^="sib_signup_box_inside_"]{
+                display: grid;
+                grid-template-columns: 1fr;
+                gap: 1.25rem;
+
+                > p,
+                > div{
+                    margin: 0 !important;
+                    padding: 0;
                 }
-                input[type="submit"]{
-                    box-shadow: none;
+                .sib_msg_disp,
+                > *:has(input[type="email"]),
+                > *:has(input[type="submit"]){
+                    grid-column: 1 / -1;
                 }
+            }
+            input[type="text"],
+            input[type="email"]{
+                background: $colorbeige;
+                color: $colorblue;
+                transition: box-shadow .3s, background .3s;
+
+                &:hover{
+                    box-shadow: 0 0 0 0.0625rem rgba($colorblue, .3) inset;
+                }
+                &:focus{
+                    background: $colorwhite;
+                    box-shadow: 0 0 0 0.125rem $colorblue inset;
+                    outline: none;
+                }
+            }
+            [class^="sib_signup_box_inside_"] > *:has(input[type="submit"]){
+                text-align: center;
+                margin-top: 0.5rem !important;
+            }
+            
+            .sib_msg_disp{
+                &:not(:has(*)){
+                    display: none;
+                }
+                .sib-alert-message{
+                    margin: 0;
+                    padding: 1rem;
+                    border-radius: $bordersmall;
+                    font-size: 0.875rem;
+                    text-align: center;
+                }
+                .sib-alert-message-success{
+                    background: rgba($colorsuccess, .15);
+                    color: darken($colorsuccess, 25%);
+                }
+                .sib-alert-message-error,
+                .sib-alert-message-warning{
+                    background: rgba($colorerror, .1);
+                    color: $colorerror;
+                }
+            }
+            .sib_loader{
+                text-align: center;
             }
         }
     }
@@ -68,19 +129,11 @@ SMALL SCREENS
                 transform: rotate(195deg);
             }
             .content-form{
-                form{
-                    .sib_signup_box_inside_1{
-                        width: 100%;
-                        display: flex;
-                        flex-wrap: wrap;
-                    }
-                    .form-field.field--submit {
-                        margin-top: 1.75rem;
-
-                        .field-inner{
-                            text-align: center;
-                        }
-                    }
+                [class^="sib_signup_box_inside_"]{
+                    grid-template-columns: 1fr 1fr;
+                }
+                input[type="submit"]{
+                    width: auto;
                 }
             }
         }
