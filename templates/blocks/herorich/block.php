@@ -14,11 +14,7 @@
             'align_content' => NULL,
             'render_template' => 'templates/blocks/herorich/template.php',
             'render_callback' => '',
-            'enqueue_assets' => function() {
-                if (is_admin()) {
-                    wp_enqueue_style('acf-block-style', get_template_directory_uri() . '/library/css/style.css');
-                }
-            },
+            // Styles éditeur chargés globalement par cbo_editor_styles() (styles-import.php)
             'icon' => 'superhero-alt',
             'supports' => array(
                 'align' => false,

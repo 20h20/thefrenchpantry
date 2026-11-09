@@ -364,6 +364,41 @@ $(window).on( 'scroll', function(){
 			});
 
 
+			/////////////////// HERO VIDEO - Pause / lecture ///////////////////
+			(function () {
+				var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+				document.querySelectorAll('.cbo-herovideo').forEach(function (hero) {
+					var video = hero.querySelector('.herovideo-video');
+					var toggle = hero.querySelector('.herovideo-toggle');
+					if (!video || !toggle) return;
+
+					function setState(paused) {
+						toggle.setAttribute('aria-pressed', paused ? 'true' : 'false');
+						toggle.setAttribute('aria-label', paused ? 'Play background video' : 'Pause background video');
+					}
+
+					// Préférence "réduire les animations" : pas de lecture auto
+					if (reduceMotion) {
+						video.removeAttribute('autoplay');
+						video.pause();
+						setState(true);
+					}
+
+					toggle.addEventListener('click', function () {
+						if (video.paused) {
+							var p = video.play();
+							if (p && p.catch) p.catch(function () {});
+							setState(false);
+						} else {
+							video.pause();
+							setState(true);
+						}
+					});
+				});
+			})();
+
+
 			/////////////////// POPIN (1 fois par session) ///////////////////
 			(function () {
 				var popin = document.getElementById('cbo-popin');
@@ -422,6 +457,65 @@ $(window).on( 'scroll', function(){
 				popin.addEventListener('click', function (e) {
 					if (e.target === popin) closePopin();
 				});
+			})();
+
+
+			/////////////////// ANCRES - Défilement doux ///////////////////
+			(function () {
+				var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+				// Hauteur à compenser : header fixe + barre d'admin WP
+				function getOffset() {
+					var header = document.querySelector('header');
+					var adminbar = document.getElementById('wpadminbar');
+					return (header ? header.offsetHeight : 0) + (adminbar ? adminbar.offsetHeight : 0);
+				}
+
+				function getTarget(hash) {
+					if (!hash || hash === '#') return null;
+					try {
+						return document.getElementById(decodeURIComponent(hash.slice(1)));
+					} catch (e) {
+						return null;
+					}
+				}
+
+				function scrollToTarget(target, smooth) {
+					var top = target.getBoundingClientRect().top + window.pageYOffset - getOffset();
+					window.scrollTo({ top: Math.max(0, top), behavior: (smooth && !reduceMotion) ? 'smooth' : 'auto' });
+
+					// Accessibilité : le focus clavier suit le défilement
+					if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
+					target.focus({ preventScroll: true });
+				}
+
+				// Clic sur un lien vers une ancre de la page courante (#ancre ou /page/#ancre)
+				document.addEventListener('click', function (e) {
+					var link = e.target.closest('a[href*="#"]');
+					if (!link || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey) return;
+					if (link.pathname !== window.location.pathname || link.hostname !== window.location.hostname) return;
+
+					var target = getTarget(link.hash);
+					if (!target) return;
+
+					e.preventDefault();
+
+					// Ferme le menu mobile s'il est ouvert
+					if ($('#header-nav').hasClass('nav--open')) {
+						$('header .burger-menu').trigger('click');
+					}
+
+					scrollToTarget(target, true);
+					if (history.pushState) history.pushState(null, '', link.hash);
+				});
+
+				// Arrivée sur une page avec une ancre dans l'URL (lien depuis une autre page)
+				if (window.location.hash) {
+					window.addEventListener('load', function () {
+						var target = getTarget(window.location.hash);
+						if (target) scrollToTarget(target, true);
+					});
+				}
 			})();
 
 

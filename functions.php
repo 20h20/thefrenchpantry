@@ -109,5 +109,27 @@
 		echo '<link rel="stylesheet" type="text/css" href="' . get_bloginfo('stylesheet_directory') . '/library/css/style.min.css" />';
 	}
    add_action('login_head', 'childtheme_custom_login');
+
+
+   /* ************************* */
+	/* ANCRES DES BLOCS ACF
+	/* Applique l'ancre saisie en BO (Bloc > Avancé > Ancre HTML) comme id
+	/* sur la première balise du bloc, sans modifier chaque template.
+	/* ************************* */
+	function cbo_apply_block_anchor( $block_content, $block ) {
+		if ( empty( $block['attrs']['anchor'] ) || strpos( (string) $block['blockName'], 'acf/' ) !== 0 ) {
+			return $block_content;
+		}
+
+		$tags = new WP_HTML_Tag_Processor( $block_content );
+		if ( $tags->next_tag() ) {
+			$tags->set_attribute( 'id', $block['attrs']['anchor'] );
+			return $tags->get_updated_html();
+		}
+
+		return $block_content;
+	}
+	add_filter( 'render_block', 'cbo_apply_block_anchor', 10, 2 );
+
    
 ?>

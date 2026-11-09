@@ -10,6 +10,7 @@ HERO RICH COMPONENT
         position: sticky;
         top: 0;
         height: 100vh;
+        height: 100svh; // mobile : évite les sauts dus à la barre d'adresse
         width: 100%;
         display: flex;
         justify-content: center;
@@ -25,6 +26,11 @@ HERO RICH COMPONENT
             height: 100%;
             z-index: 1;
 
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
             &:after{
                 content: '';
                 background: rgba($colorblack, .3);
@@ -68,14 +74,29 @@ SMALL SCREENS
                 .content-title,
                 .content-text{
                     position: relative;
-                    top: 6.25rem;
                     transition: 1s $easeinout;
+                }
+            }
+        }
+    }
+}
+
+/* Effet d'ouverture au survol : uniquement sur les appareils avec souris.
+   Sur tactile, le texte reste visible. Le focus clavier déclenche aussi l'effet. */
+@media (min-width: $screen-sm-min) and (hover: hover) {
+    .cbo-herorich{
+        .herorich-panel{
+            .panel-content{
+                .content-title,
+                .content-text{
+                    top: 6.25rem;
                 }
                 .content-text{
                     opacity: 0;
                 }
             }
-            &:hover{
+            &:hover,
+            &:focus-within{
                 flex: 1.2;
 
                 .panel-content{
@@ -88,6 +109,16 @@ SMALL SCREENS
                     }
                 }
             }
+        }
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cbo-herorich{
+        .herorich-panel,
+        .herorich-panel .panel-content .content-title,
+        .herorich-panel .panel-content .content-text{
+            transition: none;
         }
     }
 }
