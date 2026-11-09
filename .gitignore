@@ -16,3 +16,9 @@
 # Node
 /node_modules
 /package-lock.json
+
+# Fichiers compilés par Grunt (générés par "npm run build" au déploiement)
+/library/css/*.min.css
+/library/css/blocks/
+/library/css/editor/
+/library/js/scripts.js

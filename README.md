@@ -10,6 +10,7 @@
 
 ## Develop :
 - `grunt watch`
+- Les fichiers compilés (`library/css/*.min.css`, `library/css/blocks/`, `library/css/editor/`, `library/js/scripts.js`) ne sont **pas versionnés** : ils sont générés par `npm run build` lors du déploiement (GitHub Actions). En local, `grunt watch` (ou `npm run build`) les génère.
 
 ## Mise en place du déploiement :
 - Pour le staging : se rendre dans Github, onglet Settings puis Secrets and variables > Actions
