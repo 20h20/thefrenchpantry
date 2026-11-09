@@ -109,7 +109,7 @@
 		left: 0;
 		border-radius: 99rem;
 		transform: scale(1);
-		box-shadow: 0 0 0 2px rgba($colorwhite, .6) inset;
+		box-shadow: 0 0 0 0.125rem rgba($colorwhite, .6) inset;
 		transition: transform 800ms cubic-bezier(0.16, 1, 0.3, 1),box-shadow 800ms cubic-bezier(0.16, 1, 0.3, 1);
 	}
 	&:before{
