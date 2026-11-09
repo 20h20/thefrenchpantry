@@ -24,7 +24,7 @@ $height  = get_field( 'herovideo_height' );
 			<?php endif; ?>
 
 			<?php if ( $content ) : ?>
-				<div class="content-chapo cbo-chapo slide-up" itemprop="description">
+				<div class="content-chapo cbo-chapo cbo-cms slide-up" itemprop="description">
 					<?php echo wp_kses_post( $content ); ?>
 				</div>
 			<?php endif; ?>
