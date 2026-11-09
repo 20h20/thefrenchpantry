@@ -189,6 +189,7 @@ module.exports = function (grunt) {
     "webfont",
     "sass",
     "postcss",
+    "include_file",
     "uglify"
   ]);
 };

@@ -24,16 +24,14 @@ BLOCS SIMPLE COMPONENT
 
         .inner-number{
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 1.25rem;
             font-family: $fontsecondary;
             font-size: 3.125rem;
             line-height: 1;
             color: $coloryellow;
-            text-align: center;
         }
         .inner-title{
             margin-bottom: 0.75rem;
-            text-align: center;
         }
       }
     }
@@ -79,7 +77,6 @@ LARGE SCREENS
     .blocs-list{
       margin: 0 -1.25rem -1.25rem -1.25rem;
 
-      // 4 blocs par ligne
       .list-el{
         width: 25%;
         padding: 0 1.25rem;
