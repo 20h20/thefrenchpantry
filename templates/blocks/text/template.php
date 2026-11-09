@@ -4,7 +4,7 @@ defined( 'ABSPATH' ) || exit;
 $bgcolor = get_field('text_bgcolor');
 $text	= get_field('text_content');
 $size	= get_field('text_size');
-$has_bg	= $bgcolor && ! in_array( strtolower( $bgcolor ), array( 'none', 'aucune', 'aucun', 'transparent' ), true );
+$has_bg	= $bgcolor && ! in_array( strtolower( $bgcolor ), array( 'none' ), true );
 $text_class	= $has_bg ? 'text--' . $bgcolor : '';
 $container_class = $has_bg ? 'container--padding container--nomargin' : '';
 

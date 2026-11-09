@@ -24,6 +24,9 @@ $(window).on( 'scroll', function(){
 			(function() {
 				var elems = document.querySelectorAll('.parallax-image');
 				if (!elems.length) return;
+
+				// Préférence "réduire les animations" : pas de parallaxe
+				if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 			  
 				// Par défaut si pas de data-speed
 				var DEFAULT_SPEED = 0.1;
