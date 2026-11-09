@@ -9,10 +9,13 @@ $colorwhite  : #FFF;
 $colorblack  : #000;
 $colorerror : #ff0000;
 $colorsuccess : #2AD895;
-$colorjb : #e08c81;
+$colorbluedark : #182743;
+$colorbeige : #F4F1EA;
+$colorgrey : #D5D5D5;
 
 // Borders radius
 $bordersmall : 5px;
+$borderstandard : 10px;
 $borderbig : 20px;
 
 // Ease
@@ -20,32 +23,11 @@ $easeinout : cubic-bezier(0.215, 0.600, 0.270, 0.995);
 
 
 
-
-
-
-
-
-$colorbluedark : #182743;
-$colorbeige : #F4F1EA;
-$colorgrey : #D5D5D5;
-
-
-
 // Colors for dashboard
 $dbcolorgreen : #2AD895;
 $dbcolorbluedark : #1a1c22;
+$colorjb : #e08c81;
 $dbcolorgreylight : #f0f0f1;
-
-
-
-$borderstandard : 10px;
-
-
-
-
-
-
-
 
 
 
