@@ -146,7 +146,12 @@ XLARGE SCREENS
   }
 }
 
-/* Animation du titre défilant (déplacée depuis style.css) */
+@media (prefers-reduced-motion: reduce){
+  .cbo-gallery .gallery-title .title-wrapper{
+    animation: none;
+  }
+}
+
 @keyframes marquee {
     0% {
       transform: translate3d(calc(-25% + 20vw), 0, 0);

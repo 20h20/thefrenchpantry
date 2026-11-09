@@ -1,11 +1,14 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
 $content	= get_field('textpicture_content');
-	$title	= get_field('textpicture_title');
-	$picture	= get_field('textpicture_picture');
-	$picturepos	= get_field('textpicture_picturepos');
-	$picture2	= get_field('textpicture_picture2');
+$title	= get_field('textpicture_title');
+$picture	= get_field('textpicture_picture');
+$picturepos	= get_field('textpicture_picturepos');
+$picture2	= get_field('textpicture_picture2');
+
 ?>
+
 <section class="cbo-textpicture textpicture--<?php echo esc_attr($picturepos); ?>">
 	<div class="textpicture-inner cbo-container">
 		<div class="textpicture-picture">

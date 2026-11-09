@@ -1,5 +1,6 @@
 <?php
 
+defined( 'ABSPATH' ) || exit;
 $title   = get_field( 'herovideo_title' );
 $content = get_field( 'herovideo_content' );
 $video   = get_field( 'herovideo_video' );

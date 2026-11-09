@@ -1,22 +1,24 @@
 <?php
-	$title	= get_field('testimonials_title');
-	$content	= get_field('testimonials_content');
-	global $flexible_count;
-	$flexible_count++;
+
+defined( 'ABSPATH' ) || exit;
+$title	= get_field('testimonials_title');
+$content	= get_field('testimonials_content');
+
 ?>
-<section id="section-<?php echo $flexible_count; ?>" class="cbo-testimonials">
+
+<section class="cbo-testimonials">
 	<div class="testimonials-inner cbo-container">
 
 		<div class="testimonials-content">
 			<?php if($title): ?>
 				<div class="content-title cbo-title-2 slide-up">
-					<?php echo $title ?>
+					<?php echo wp_kses_post($title); ?>
 				</div>
 			<?php endif; ?>
 
 			<?php if($content): ?>
 				<div class="content-text cbo-cms slide-up">
-					<?php echo $content ?>
+					<?php echo wp_kses_post($content); ?>
 				</div>
 			<?php endif; ?>
 		</div>
@@ -36,9 +38,9 @@
 							<div class="inner-picture cbo-picture-cover">
 								<img
 									decoding="async"
-									src="<?php echo $picture['sizes']['medium']; ?>"
-									srcset="<?php echo $picture['sizes']['medium']; ?> 320w, <?php echo $picture['sizes']['medium']; ?> 768w, <?php echo $picture['sizes']['medium']; ?> 1024w"
-									alt="<?php echo $picture['alt']; ?>" sizes="100vw"
+									src="<?php echo esc_url($picture['sizes']['small']); ?>"
+									srcset="<?php echo esc_url($picture['sizes']['small']); ?> <?php echo (int) $picture['sizes']['small-width']; ?>w, <?php echo esc_url($picture['sizes']['medium']); ?> <?php echo (int) $picture['sizes']['medium-width']; ?>w"
+									alt="<?php echo esc_attr($picture['alt']); ?>" sizes="(min-width: 768px) 50vw, 100vw"
 									loading="lazy"
 									width="530" height="530"
 								>
@@ -48,15 +50,18 @@
 						<div class="inner-content">
 							<?php if($name): ?>
 								<div class="content-name cbo-title-4 slide-up">
-									<?php echo wp_kses_post($title); ?>
+									<?php echo esc_html($name); ?>
 								</div>
 							<?php endif; ?>
+
 							<div class="content-text slide-up">
 								<?php echo wp_kses_post($testimonial); ?>
 							</div>
-							<div class="content-star slide-up">
-								<i class="icon icon--star"></i> <span><?php echo $notation; ?>/5</span>
-							</div>
+							<?php if($notation !== '' && $notation !== null): ?>
+								<div class="content-star slide-up">
+									<i class="icon icon--star" aria-hidden="true"></i> <span><span class="screen-reader-text">Rating: </span><?php echo esc_html($notation); ?>/5</span>
+								</div>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>

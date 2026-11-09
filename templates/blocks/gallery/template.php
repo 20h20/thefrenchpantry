@@ -1,15 +1,17 @@
 <?php
-	$galerie	= get_field('gallery_list');
-	$title	= get_field('gallery_title');
-	global $flexible_count;
-	$flexible_count++;
+
+defined( 'ABSPATH' ) || exit;
+$galerie	= get_field('gallery_list');
+$title	= get_field('gallery_title');
+
 ?>
-<section id="section-<?php echo $flexible_count; ?>" class="cbo-gallery">
+
+<section class="cbo-gallery">
 	<?php if($title): ?>
 		<div class="gallery-title">
 			<div class="title-wrapper">
 				<?php for ($i = 0; $i < 10; $i++) : ?>
-					<span>
+					<span<?php if ($i > 0) : ?> aria-hidden="true"<?php endif; ?>>
 						<?php echo wp_kses_post($title); ?>
 					</span>
 				<?php endfor; ?>
@@ -26,12 +28,11 @@
 				<div class="list-el">
 					<div class="el-inner cbo-picture-cover">
 						<img
-							src="<?php echo esc_url($image['sizes']['medium']); ?>"
-							srcset="<?php echo esc_url($image['sizes']['medium']); ?> 320w, 
-								<?php echo esc_url($image['sizes']['medium']); ?> 768w, 
-								<?php echo esc_url($image['sizes']['medium']); ?> 1024w"
-							<?php echo esc_attr($image['alt']); ?>
-							sizes="(min-width: 1024px) 50vw, (min-width: 768px) 60vw, 100vw"
+							src="<?php echo esc_url($image['sizes']['small']); ?>"
+							srcset="<?php echo esc_url($image['sizes']['small']); ?> <?php echo (int) $image['sizes']['small-width']; ?>w,
+								<?php echo esc_url($image['sizes']['medium']); ?> <?php echo (int) $image['sizes']['medium-width']; ?>w"
+							alt="<?php echo esc_attr($image['alt']); ?>"
+							sizes="(min-width: 768px) 33vw, 50vw"
 							width="500" height="500"
 							loading="lazy"
 							decoding="async"
@@ -39,7 +40,7 @@
 						>
 					</div>
 				</div>
-			<?php 
+			<?php
 				endforeach;
 				endif;
 			?>
