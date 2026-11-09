@@ -27,6 +27,10 @@ $title	= get_field('blocs_title');
 			?>
 				<div class="list-el slide-up">
 					<div class="el-inner">
+						<span class="inner-number slide-up" aria-hidden="true">
+							<?php echo (int) get_row_index(); ?>
+						</span>
+
 						<?php if($el_title): ?>
 							<h3 class="inner-title cbo-title-3 slide-up">
 								<?php echo esc_html($el_title); ?>
