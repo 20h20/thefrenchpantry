@@ -394,3 +394,37 @@ BACK OFFICE COMPONENT
 		}
 	}
 }
+
+/* -------------------------------
+ADMIN BAR (front, utilisateur connecté)
+La barre WP fait 46px sous 782px et 32px au-dessus.
+On expose sa hauteur via --adminbar-height pour décaler
+tous les éléments fixed / sticky du front.
+------------------------------- */
+body.admin-bar:not(.wp-admin) {
+	--adminbar-height: 46px;
+
+	// WP passe la barre en absolute sous 600px : on la garde fixe
+	// pour qu'elle reste alignée avec le header fixe.
+	#wpadminbar {
+		position: fixed;
+	}
+
+	header {
+		top: var(--adminbar-height);
+	}
+}
+
+// Menu mobile plein écran (en desktop la nav n'est plus fixed)
+@media (max-width: $screen-sm-max) {
+	body.admin-bar:not(.wp-admin) header .header-inner .header-nav {
+		top: var(--adminbar-height);
+		height: calc(100vh - var(--adminbar-height));
+	}
+}
+
+@media screen and (min-width: 783px) {
+	body.admin-bar:not(.wp-admin) {
+		--adminbar-height: 32px;
+	}
+}

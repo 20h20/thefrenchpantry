@@ -28,6 +28,10 @@
 			$global_css_version = file_exists($global_css_file) ? filemtime($global_css_file) : wp_get_theme()->get('Version');
 			wp_enqueue_style('global-styles', get_stylesheet_directory_uri() . '/library/css/style.min.css', array(), $global_css_version);
 
+			// Script principal : en footer, versionné (cache busting), defer via cbo_add_defer_attribute()
+			$js_file = get_template_directory() . '/library/js/scripts.js';
+			wp_enqueue_script('bones-scripts', get_template_directory_uri() . '/library/js/scripts.js', array(), file_exists($js_file) ? filemtime($js_file) : null, true);
+
 			// Détection automatique des blocs ACF dans le contenu - Permet d'appeler les styles ou non
 			if (is_singular() || is_tax()) {
 				global $post;

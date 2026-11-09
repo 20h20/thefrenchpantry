@@ -9,9 +9,6 @@
 	add_filter( 'upload_mimes', 'cbo_mime_types' );
 	add_filter( 'wp_check_filetype_and_ext', 'cbo_file_types', 10, 4 );
 
-	// Remove adminbar
-	show_admin_bar(false);
-
 
 	// WP logo adminbar
 	function custom_admin_logo() { ?>

@@ -44,23 +44,23 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
-	font-size: 54px;
-	line-height: 54px;
+	font-size: 3.375rem;
+	line-height: 3.375rem;
 }
 
 .cbo-title-2, .cbo-title-2 h1, .cbo-title-2 h2, .cbo-title-2 h3, .cbo-title-2 h4.cbo-title-2 h5, .cbo-title-2 p, .cbo-cms h2{
-	font-size: 42px;
-	line-height: 42px;
+	font-size: 2.625rem;
+	line-height: 2.625rem;
 }
 
 .cbo-title-3, .cbo-title-3 h1, .cbo-title-3h2, .cbo-title-3 h3, .cbo-title-3 h4.cbo-title-3 h5, .cbo-title-3 p, .cbo-cms h3{
-	font-size: 26px;
-	line-height: 26px;
+	font-size: 1.625rem;
+	line-height: 1.625rem;
 }
 
 .cbo-chapo{
-	font-size: 18px;
-	line-height: 20px;
+	font-size: 1.125rem;
+	line-height: 1.25rem;
 }
 
 
@@ -127,7 +127,7 @@ h1,h2,h3,h4,h5,h6{
 	}
 	hr{
 		border: 0;
-		border-bottom: 1px solid rgba($colorblue, .2);
+		border-bottom: 0.0625rem solid rgba($colorblue, .2);
 		margin: 3.125rem 0;
 	}
 	img{
@@ -145,7 +145,7 @@ h1,h2,h3,h4,h5,h6{
 		background: rgba($colorblue, .1);
 		border: 0.0625rem solid rgba($colorblue, .3);
 		border-left: 0.1875rem solid rgba($colorblue, 1);
-		border-radius: 5px;
+		border-radius: 0.3125rem;
 	}
 }
 
@@ -154,20 +154,20 @@ MEDIUM SCREENS
 ------------------------------- */
 @media (min-width: $screen-md-min){
 	.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
-		font-size: 120px;
-		line-height: 120px;
+		font-size: 7.5rem;
+		line-height: 7.5rem;
 	}
 	.cbo-title-2, .cbo-title-2 h1, .cbo-title-2 h2, .cbo-title-2 h3, .cbo-title-2 h4.cbo-title-2 h5, .cbo-title-2 p, .cbo-cms h2{
-		font-size: 62px;
-		line-height: 62px;
+		font-size: 3.875rem;
+		line-height: 3.875rem;
 	}
 	.cbo-title-3, .cbo-title-3 h1, .cbo-title-3h2, .cbo-title-3 h3, .cbo-title-3 h4.cbo-title-3 h5, .cbo-title-3 p, .cbo-cms h3{
-		font-size: 34px;
-		line-height: 34px;
+		font-size: 2.125rem;
+		line-height: 2.125rem;
 	}
 	.cbo-chapo{
-		font-size: 24px;
-		line-height: 30px;
+		font-size: 1.5rem;
+		line-height: 1.875rem;
 	}
 }
 
@@ -175,26 +175,12 @@ MEDIUM SCREENS
 LARGE SCREENS
 ------------------------------- */
 @media (min-width: $screen-lg-min){
-	.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
-		font-size: 150px;
-		line-height: 150px;
-	}
 	.cbo-title-2, .cbo-title-2 h1, .cbo-title-2 h2, .cbo-title-2 h3, .cbo-title-2 h4.cbo-title-2 h5, .cbo-title-2 p, .cbo-cms h2{
-		font-size: 120px;
-		line-height: 120px;
+		font-size: 7.5rem;
+		line-height: 7.5rem;
 	}
 	.cbo-title-3, .cbo-title-3 h1, .cbo-title-3h2, .cbo-title-3 h3, .cbo-title-3 h4.cbo-title-3 h5, .cbo-title-3 p, .cbo-cms h3{
-		font-size: 40px;
-		line-height: 40px;
+		font-size: 2.5rem;
+		line-height: 2.5rem;
 	}
-}
-
-/* -------------------------------
-XLARGE SCREENS
-------------------------------- */
-@media (min-width: $screen-xl-min){
-	.cbo-title-1, .cbo-title-1 h1, .cbo-title-1 h2, .cbo-title-1 h3, .cbo-title-1 h4.cbo-title-1 h5, .cbo-title-1 p, .cbo-cms h1{
-		font-size: 240px;
-		line-height: 240px;
-	}	
 }

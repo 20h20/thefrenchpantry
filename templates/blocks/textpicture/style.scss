@@ -103,9 +103,6 @@ MEDIUM SCREENS
           left: -2.5rem;
         }
       }
-      .content-text{
-        padding-left: 1.875rem;
-      }
     }
     &.textpicture--reverse{
       .textpicture-inner{
@@ -151,9 +148,6 @@ LARGE SCREENS
           height: 7.1875rem;
         }
       }
-      .content-text{
-        padding-left: 4.375rem;
-      }
     }
     &.textpicture--reverse{
       .textpicture-picture{
@@ -182,9 +176,6 @@ XLARGE SCREENS
           height: 9.8125rem;
           bottom: 4.25rem;
         }
-      }
-      .content-text{
-        padding-left: 6.875rem;
       }
     }
   }

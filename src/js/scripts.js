@@ -297,19 +297,6 @@ $(window).on( 'scroll', function(){
 				closeSpeed:500,
 			});
 
-			/////////////////// Burger menu - Accessibilité ///////////////////
-			var burger = document.querySelector('.burger-menu');
-			var nav = document.querySelector('.header-nav');
-			if (burger && nav) {
-				burger.addEventListener('click', function () {
-					var expanded = burger.getAttribute('aria-expanded') === 'true';
-					burger.setAttribute('aria-expanded', !expanded);
-					burger.classList.toggle('is-active');
-					nav.classList.toggle('is-open');
-				});
-			}
-
-
 			//////////////// STICKY ////////////////
 			$(window).scroll(function(){
 				if($(window).scrollTop()>80){
@@ -353,10 +340,27 @@ $(window).on( 'scroll', function(){
 
 
 			/////////////////// SMARTPHONE NAVIGATION ///////////////////
-			$('header .burger-menu').on('click', function () {
-				$('.header-nav').toggleClass('nav--open');
-				$('.burger-menu').toggleClass('burger-menu-cross');
-				$('html').toggleClass('html--hidden');
+			var $burger = $('header .burger-menu');
+			var $nav = $('#header-nav');
+
+			function toggleNav(open) {
+				$nav.toggleClass('nav--open', open);
+				$burger.toggleClass('burger-menu-cross', open)
+					.attr('aria-expanded', open ? 'true' : 'false')
+					.attr('aria-label', open ? 'Fermer la navigation principale' : 'Ouvrir la navigation principale');
+				$('html').toggleClass('html--hidden', open);
+			}
+
+			$burger.on('click', function () {
+				toggleNav(!$nav.hasClass('nav--open'));
+			});
+
+			// Fermeture au clavier (Échap) et retour du focus sur le bouton
+			$(document).on('keydown', function (e) {
+				if (e.key === 'Escape' && $nav.hasClass('nav--open')) {
+					toggleNav(false);
+					$burger.trigger('focus');
+				}
 			});
 
 

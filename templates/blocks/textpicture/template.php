@@ -8,7 +8,7 @@
 	$flexible_count++;
 ?>
 <section id="section-<?php echo $flexible_count; ?>" class="cbo-textpicture textpicture--<?php echo $picturepos; ?>">
-	<div class="textpicture-inner cbo-container container--medium">
+	<div class="textpicture-inner cbo-container">
 		<div class="textpicture-picture">
 			<div class="textpicture-main cbo-picture-cover">
 				<img

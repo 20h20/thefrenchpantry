@@ -43,9 +43,49 @@ body {
 *{
 	box-sizing: border-box;
 
-	&:focus {
-		outline:none;
+	// Focus visible uniquement à la navigation clavier
+	&:focus:not(:focus-visible) {
+		outline: none;
 	}
+	&:focus-visible {
+		outline: 0.125rem solid $coloryellow;
+		outline-offset: 0.125rem;
+	}
+}
+
+/* Texte réservé aux lecteurs d'écran */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	width: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	word-wrap: normal !important;
+}
+
+/* Lien d'évitement (accessibilité clavier) */
+.skip-link {
+	position: absolute;
+	top: 0.625rem;
+	left: 0.625rem;
+	z-index: 100000;
+	padding: 0.75rem 1.25rem;
+	background: $colorblue;
+	color: $colorwhite;
+	border-radius: 99rem;
+	transform: translateY(-200%);
+	transition: transform .2s;
+
+	&:focus {
+		transform: translateY(0);
+	}
+}
+.cbo-main:focus {
+	outline: none;
 }
 p{
 	margin: 0;

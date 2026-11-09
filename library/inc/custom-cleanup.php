@@ -88,6 +88,7 @@
 
 	/* Enable custom theme supports */
 	function bones_theme_support() {
+		add_theme_support( 'title-tag' );
 		add_theme_support( 'post-thumbnails' );
 		set_post_thumbnail_size(125, 125, true);
 		add_theme_support('automatic-feed-links');
