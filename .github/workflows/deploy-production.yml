@@ -24,7 +24,7 @@ jobs:
           protocol: ftp
           port: 21
           local-dir: ./
-          server-dir: /www/wp-content/themes/thomasG/
+          server-dir: /domains/thefrenchpantryvt.com/public_html/wp-content/themes/thomasG/
           exclude: |
             **/.git*
             **/.git*/**
