@@ -7,12 +7,23 @@ TEXT COMPONENT
     &.text--blue{
         background: $colorblue;
         color: $colorwhite;
+
+        .cbo-cms h1,
+        .cbo-cms h2,
+        .cbo-cms h3,
+        .cbo-cms h4{
+            color: $colorwhite;
+        }
     }
     &.text--white{
         background: $colorwhite;
     }
     &.text--yellow{
         background: $coloryellow;
+
+        .cbo-cms a:not(.cbo-button){
+            color: $colorblue;
+        }
     }
     &.text--small{
         .text-inner.cbo-container{

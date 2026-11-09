@@ -260,7 +260,8 @@ $(window).on( 'scroll', function(){
 				slidesToScroll: 10,
 				infinite: false,
 				adaptiveHeight: true,
-				autoplay: true,
+				// Défilement continu désactivé si "réduire les animations" (WCAG 2.2.2)
+				autoplay: !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches),
 				autoplaySpeed: 0,
 				cssEase: 'linear',
 				responsive: [

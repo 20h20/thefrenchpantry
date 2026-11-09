@@ -1,9 +1,13 @@
 <?php
-	$bgcolor = get_field('text_bgcolor');
-	$text	= get_field('text_content');
-	$size	= get_field('text_size');
-	$text_class	= $bgcolor ? 'text--' . $bgcolor : '';
-	$container_class = $bgcolor ? 'container--padding container--nomargin' : '';
+
+defined( 'ABSPATH' ) || exit;
+$bgcolor = get_field('text_bgcolor');
+$text	= get_field('text_content');
+$size	= get_field('text_size');
+$has_bg	= $bgcolor && ! in_array( strtolower( $bgcolor ), array( 'none', 'aucune', 'aucun', 'transparent' ), true );
+$text_class	= $has_bg ? 'text--' . $bgcolor : '';
+$container_class = $has_bg ? 'container--padding container--nomargin' : '';
+
 ?>
 
 <section class="cbo-text text--<?php echo esc_attr($size); ?> <?php echo esc_attr($text_class); ?>">

@@ -1,7 +1,7 @@
 @import "../../../src/scss/partials/variables";
 
 /* -------------------------------
-TESTIMONIALS COMPONENT
+INSTAGRAM COMPONENT
 ------------------------------- */
 .cbo-instagram{
     .instagram-inner.cbo-container{
@@ -67,21 +67,6 @@ TESTIMONIALS COMPONENT
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 /* -------------------------------
 MEDIUM SCREENS
 ------------------------------- */
@@ -141,22 +126,21 @@ LARGE SCREENS
 @media (min-width: $screen-lg-min) {
     .cbo-testimonials{
         .testimonials-content{
-        
             min-width: 50%;
-    padding-right: 10%;
-    position: relative;
-    width: 50%;
-    z-index: 2;
+            padding-right: 10%;
+            position: relative;
+            width: 50%;
+            z-index: 2;
 
             &:before{
                 content: "";
                 background: $colorwhite;
-    display: block;
-    height: 150%;
-    position: absolute;
-    right: 0;
-    top: -25%;
-    width: 50vw;
+                display: block;
+                height: 150%;
+                position: absolute;
+                right: 0;
+                top: -25%;
+                width: 50vw;
             }
         }
         .testimonials-list{
@@ -176,7 +160,7 @@ LARGE SCREENS
 
                     .slick-track{
                         align-items: stretch;
-  display: flex;
+                        display: flex;
                     }
                 }
             }

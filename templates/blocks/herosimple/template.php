@@ -1,7 +1,11 @@
 <?php
-	$title	= get_field('herosimple_title');
-	$content	= get_field('herosimple_content');
+
+defined( 'ABSPATH' ) || exit;
+$title	= get_field('herosimple_title');
+$content	= get_field('herosimple_content');
+
 ?>
+
 <section class="cbo-herosimple">
 	<div class="herosimple-inner cbo-container container--nomargin container--padding">
 
@@ -13,7 +17,7 @@
 			<?php endif; ?>
 
 			<?php if($content): ?>
-				<div class="content-chapo cbo-chapo slide-up">
+				<div class="content-chapo cbo-chapo slide-up" itemprop="description">
 					<?php echo wp_kses_post($content); ?>
 				</div>
 			<?php endif; ?>

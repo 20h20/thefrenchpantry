@@ -1,3 +1,14 @@
+/******************************************************************
+STYLES DU BO
+Chargé (voir library/inc/styles-import.php) :
+- dans l'admin WP (dashboard)            -> admin_css()
+- dans l'iframe de l'éditeur de blocs    -> cbo_editor_styles()
+- sur le front si la barre d'admin est affichée (utilisateur connecté)
+La typographie et les styles du site ne s'appliquent pas à l'interface WP.
+******************************************************************/
+@import "partials/variables";
+@import "partials/icons";
+
 /* -------------------------------
 BACK OFFICE COMPONENT
 ------------------------------- */
@@ -17,38 +28,7 @@ BACK OFFICE COMPONENT
 			margin: 0;
 			max-width: inherit;
 
-			.cbo-gallery{
-				background: $colorblue;
-			  
-				.gallery-inner{
-				  position: relative;
-				  top: 0;
-				  bottom: 0;
-				}
-			}
-			.cbo-blocs{
-				.blocs-title{
-					&:after{
-					  background: url("../../library/img/cabbage.svg") no-repeat center;
-					}
-				}
-				.blocs-list{			
-				  .list-el{
-					padding: 0 0.625rem;
-
-					.el-inner{
-						padding: 1.25rem 1.875rem;
-					}
-				  }
-				}
-			}
-			.cbo-herosimple{
-				background: $colorblue;
-			}
-			.cbo-herovideo {
-				overflow: hidden;
-				position: relative;
-			}
+			
 		}
 	}
 }

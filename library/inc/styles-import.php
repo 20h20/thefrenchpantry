@@ -28,9 +28,19 @@
 			$global_css_version = file_exists($global_css_file) ? filemtime($global_css_file) : wp_get_theme()->get('Version');
 			wp_enqueue_style('global-styles', get_stylesheet_directory_uri() . '/library/css/style.min.css', array(), $global_css_version);
 
+			// Utilisateur connecté (barre d'admin affichée) : styles du BO (correctif admin bar)
+			if (is_admin_bar_showing()) {
+				cbo_enqueue_admin_styles();
+			}
+
 			// Script principal : en footer, versionné (cache busting), defer via cbo_add_defer_attribute()
 			$js_file = get_template_directory() . '/library/js/scripts.js';
 			wp_enqueue_script('bones-scripts', get_template_directory_uri() . '/library/js/scripts.js', array(), file_exists($js_file) ? filemtime($js_file) : null, true);
+
+			// Page 404 : le hero est écrit en dur dans 404.php (pas de contenu à analyser)
+			if (is_404()) {
+				cbo_register_block_usage('herosimple');
+			}
 
 			// Détection automatique des blocs ACF dans le contenu - Permet d'appeler les styles ou non
 			if (is_singular() || is_tax()) {
@@ -70,22 +80,29 @@
 		$global_css_file = get_template_directory() . '/library/css/style.min.css';
 		wp_enqueue_style('cbo-editor-global', get_template_directory_uri() . '/library/css/style.min.css', array(), file_exists($global_css_file) ? filemtime($global_css_file) : null);
 
-		$blocks_css_file = get_template_directory() . '/library/css/gutenberg.min.css';
-		wp_enqueue_style('cbo-editor-blocks', get_template_directory_uri() . '/library/css/gutenberg.min.css', array('cbo-editor-global'), file_exists($blocks_css_file) ? filemtime($blocks_css_file) : null);
+		$blocks_css_file = get_template_directory() . '/library/css/editor/gutenberg.min.css';
+		wp_enqueue_style('cbo-editor-blocks', get_template_directory_uri() . '/library/css/editor/gutenberg.min.css', array('cbo-editor-global'), file_exists($blocks_css_file) ? filemtime($blocks_css_file) : null);
+
+		// Ajustements des blocs dans l'éditeur (.editor-styles-wrapper)
+		cbo_enqueue_admin_styles();
 	}
 	add_action('enqueue_block_assets', 'cbo_editor_styles');
 
 
 	/* ****************** */
 	/* Load admin styles */
-	function admin_css() {
-		$admin_handle = 'gutenberg-styles';
-		$gutenberg_stylesheet = get_template_directory_uri() . '/library/css/gutenberg.min.css';
-		wp_enqueue_style($admin_handle, $gutenberg_stylesheet);
+	/* Styles du BO : library/css/admin.min.css (source : src/scss/admin.scss) */
+	function cbo_enqueue_admin_styles() {
+		$admin_css_file = get_template_directory() . '/library/css/admin.min.css';
+		if (file_exists($admin_css_file)) {
+			wp_enqueue_style('backoffice', get_template_directory_uri() . '/library/css/admin.min.css', array(), filemtime($admin_css_file));
+		}
+	}
 
-		$admin_handle = 'backoffice';
-		$admin_stylesheet = get_template_directory_uri() . '/library/css/style.min.css';
-		wp_enqueue_style($admin_handle, $admin_stylesheet);
+	// Interface WP (hors iframe de l'éditeur) : uniquement les styles du BO,
+	// sans la typographie ni les styles du site.
+	function admin_css() {
+		cbo_enqueue_admin_styles();
 	}
 	add_action('admin_print_styles', 'admin_css', 11);
 ?>

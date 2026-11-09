@@ -1,6 +1,9 @@
 <?php
-	$title	= get_field('instagram_title');
-	$chapo	= get_field('instagram_chapo');
+
+defined( 'ABSPATH' ) || exit;
+$title	= get_field('instagram_title');
+$chapo	= get_field('instagram_chapo');
+
 ?>
 
 <section class="cbo-instagram">
@@ -18,8 +21,10 @@
 			</div>
 		<?php endif; ?>
 
-		<div class="instagram-list">
-			<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
-		</div>
+		<?php if ( shortcode_exists( 'instagram-feed' ) ) : ?>
+			<div class="instagram-list">
+				<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+			</div>
+		<?php endif; ?>
 	</div>
 </section>

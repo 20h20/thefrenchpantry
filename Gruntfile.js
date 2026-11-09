@@ -42,6 +42,15 @@ module.exports = function (grunt) {
         options: {
           sourceMap: false,
         }
+      },
+
+      /* Styles du BO (dashboard, admin bar) sans les styles du site */
+      admin: {
+        src: "<%= path_src_styles %>admin.scss",
+        dest: "<%= path_dist_styles %>admin.min.css",
+        options: {
+          sourceMap: false,
+        }
       }
     },
 
@@ -67,6 +76,13 @@ module.exports = function (grunt) {
         options: {
           map: false,
         }
+      },
+      admin: {
+        src: "<%= path_dist_styles %>admin.min.css",
+        dest: "<%= path_dist_styles %>admin.min.css",
+        options: {
+          map: false,
+        }
       }
     },
 
@@ -76,8 +92,13 @@ module.exports = function (grunt) {
       },
       /* Concatene tous les fichiers CSS des blocs dans un seul fichier pour le bo */
       gutenberg: {
+        // Retour à la ligne (et non ";") : un ";" entre deux fichiers CSS invalide la 1re règle de chaque bloc
+        options: {
+          separator: "\n"
+        },
         src: ["<%= path_dist_blocks %>*.css"],
-        dest: "<%= path_dist_styles %>gutenberg.min.css",
+        // Même profondeur que library/css/blocks/ : les url(../../../library/img/...) des blocs restent valides
+        dest: "<%= path_dist_styles %>editor/gutenberg.min.css",
       },
       dist: {
         src: ["<%= path_src %>js/**/*.js"],
@@ -137,7 +158,7 @@ module.exports = function (grunt) {
       },
       global: {
         files: ["<%= path_src %>**/*.scss", "templates/parts/**/*.scss"],
-        tasks: ["sass:global", "postcss:global"]
+        tasks: ["sass:global", "postcss:global", "sass:admin", "postcss:admin"]
       },
       js: {
         files: "<%= path_src %>js/**/*.js",
@@ -152,8 +173,8 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks("grunt-postcss");
 
   grunt.registerTask("default", [
-    "sass:blocks", "sass:global",
-    "postcss:blocks", "postcss:global", "concat:gutenberg",
+    "sass:blocks", "sass:global", "sass:admin",
+    "postcss:blocks", "postcss:global", "postcss:admin", "concat:gutenberg",
     "webfont",
     "sass",
     "postcss",
@@ -163,8 +184,8 @@ module.exports = function (grunt) {
   ]);
 
   grunt.registerTask("build", [
-    "sass:blocks", "sass:global",
-    "postcss:blocks", "postcss:global", "concat:gutenberg",
+    "sass:blocks", "sass:global", "sass:admin",
+    "postcss:blocks", "postcss:global", "postcss:admin", "concat:gutenberg",
     "webfont",
     "sass",
     "postcss",
