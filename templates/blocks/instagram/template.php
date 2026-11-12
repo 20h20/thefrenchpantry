@@ -21,7 +21,11 @@ $chapo	= get_field('instagram_chapo');
 			</div>
 		<?php endif; ?>
 
-		<?php if ( shortcode_exists( 'instagram-feed' ) ) : ?>
+		<?php if ( ! empty( $is_preview ) ) : ?>
+			<div class="instagram-list instagram-list--preview">
+				<p>Flux Instagram — affiché sur le site (non visible dans l'éditeur).</p>
+			</div>
+		<?php elseif ( shortcode_exists( 'instagram-feed' ) ) : ?>
 			<div class="instagram-list">
 				<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
 			</div>
