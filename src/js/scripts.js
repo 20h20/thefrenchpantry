@@ -261,8 +261,9 @@ $(window).on( 'scroll', function(){
 				dots: false,
 				speed: 40000,
 				slidesToShow: 8,
-				slidesToScroll: 10,
-				infinite: false,
+				// Défilement = nombre affiché et boucle infinie : pas de "fin" où Slick recalcule mal les largeurs
+				slidesToScroll: 8,
+				infinite: true,
 				adaptiveHeight: true,
 				// Défilement continu désactivé si "réduire les animations" (WCAG 2.2.2)
 				autoplay: !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches),

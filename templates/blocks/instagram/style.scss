@@ -31,6 +31,15 @@ INSTAGRAM COMPONENT
     .instagram-chapo{
         text-align: center;
     }
+    // Aperçu dans l'éditeur Gutenberg
+    .instagram-list--preview{
+        margin: 1.875rem 1.25rem 0;
+        padding: 3.75rem 1.25rem;
+        border: 0.125rem dashed rgba($colorblue, .3);
+        border-radius: $bordersmall;
+        text-align: center;
+        color: $colorblue;
+    }
     .instagram-list{
         #sb_instagram {
             #sbi_images {
