@@ -255,47 +255,6 @@ $(window).on( 'scroll', function(){
 			});
 
 
-			/////////////////// SLIDER INSTAGRAM ///////////////////
-			$('.cbo-instagram .instagram-list #sbi_images').slick({
-				arrows : false,
-				dots: false,
-				speed: 40000,
-				slidesToShow: 8,
-				// Défilement = nombre affiché (10 pour 8 affichées faussait le calcul des largeurs en fin de slider)
-				// infinite reste à false : les copies créées par Slick ne sont pas chargées par Smash Balloon
-				slidesToScroll: 8,
-				infinite: false,
-				adaptiveHeight: true,
-				// Défilement continu désactivé si "réduire les animations" (WCAG 2.2.2)
-				autoplay: !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches),
-				autoplaySpeed: 0,
-				cssEase: 'linear',
-				responsive: [
-					{
-						breakpoint: 1283,
-						settings: {
-							slidesToShow: 3,
-							slidesToScroll: 3
-						}
-					},
-					{
-						breakpoint: 1024,
-						settings: {
-							slidesToShow: 2,
-							slidesToScroll: 2
-						}
-					},
-					{
-						breakpoint: 767,
-						settings: {
-							slidesToShow: 2,
-							slidesToScroll: 2,
-						}
-					},
-				]
-			});
-
-
 			/////////////////// LIGHTBOX ///////////////////
 			$(".lightbox").fancybox({
 				openEffect:'elastic',
