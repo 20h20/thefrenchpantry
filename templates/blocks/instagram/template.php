@@ -22,7 +22,6 @@ $chapo	= get_field('instagram_chapo');
 		<?php endif; ?>
 
 		<?php if ( ! empty( $is_preview ) ) : ?>
-			<?php // Éditeur : le flux a besoin du JS/CSS de Smash Balloon, absents de l'éditeur -> aperçu explicite ?>
 			<div class="instagram-list instagram-list--preview">
 				<p>Flux Instagram — affiché sur le site (non visible dans l'éditeur).</p>
 			</div>
