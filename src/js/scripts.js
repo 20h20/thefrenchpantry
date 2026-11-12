@@ -261,9 +261,10 @@ $(window).on( 'scroll', function(){
 				dots: false,
 				speed: 40000,
 				slidesToShow: 8,
-				// Défilement = nombre affiché et boucle infinie : pas de "fin" où Slick recalcule mal les largeurs
+				// Défilement = nombre affiché (10 pour 8 affichées faussait le calcul des largeurs en fin de slider)
+				// infinite reste à false : les copies créées par Slick ne sont pas chargées par Smash Balloon
 				slidesToScroll: 8,
-				infinite: true,
+				infinite: false,
 				adaptiveHeight: true,
 				// Défilement continu désactivé si "réduire les animations" (WCAG 2.2.2)
 				autoplay: !(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches),
