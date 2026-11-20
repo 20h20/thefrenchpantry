@@ -10,6 +10,7 @@
 	require get_template_directory() . '/templates/blocks/herovideo/block.php';
 	require get_template_directory() . '/templates/blocks/instagram/block.php';
 	require get_template_directory() . '/templates/blocks/picturefull/block.php';
+	require get_template_directory() . '/templates/blocks/recipe/block.php';
 	require get_template_directory() . '/templates/blocks/testimonials/block.php';
 	require get_template_directory() . '/templates/blocks/text/block.php';
 	require get_template_directory() . '/templates/blocks/textpicture/block.php';
@@ -27,6 +28,7 @@
 			'acf/herovideo',
 			'acf/instagram',
 			'acf/picturefull',
+			'acf/recipe',
 			'acf/testimonials',
 			'acf/text',
 			'acf/textpicture',
