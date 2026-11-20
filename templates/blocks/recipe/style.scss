@@ -60,7 +60,7 @@ RECIPE (WEEKLY MENU) COMPONENT
             // Ajuster letter-spacing si le texte ne boucle pas pile sur le cercle
             text{
                 font-family: $fontprimary;
-                font-size: 11px;
+                font-size: 0.6875rem;
                 font-weight: normal;
                 letter-spacing: 1.2px;
                 fill: $colorblue;
@@ -182,10 +182,10 @@ SMALL SCREENS
 @media (min-width: $screen-sm-min) {
     .cbo-recipe{
         .recipe-badge{
-            top: -25px;
-            right: -36px;
-            width: 90px;
-            height: 90px;
+            top: -1.5625rem;
+            right: -2.25rem;
+            width: 5.625rem;
+            height: 5.625rem;
         }
         .recipe-sheet{
             padding: 3.75rem 3.75rem 3.75rem 3.75rem;
@@ -251,8 +251,6 @@ LARGE SCREENS
             padding: 5rem 4.375rem 5rem 4.375rem;
         }
         .recipe-badge{
-            top: -3.125rem;
-            right: 3.125rem;
             width: 6.25rem;
             height: 6.25rem;
         }
