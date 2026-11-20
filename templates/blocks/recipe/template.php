@@ -3,12 +3,27 @@
 defined( 'ABSPATH' ) || exit;
 $title	= get_field('recipe_title');
 $subtitle	= get_field('recipe_subtitle');
+$badge_id	= wp_unique_id('recipe-badge-');
 
 ?>
 
 <section class="cbo-recipe" itemscope itemtype="https://schema.org/Menu">
 	<div class="recipe-inner cbo-container container--medium">
 		<div class="recipe-sheet slide-up">
+
+			<div class="recipe-badge" aria-hidden="true">
+				<svg class="badge-text" viewBox="0 0 120 120" width="120" height="120" focusable="false">
+					<defs>
+						<path id="<?php echo esc_attr($badge_id); ?>" d="M60,60 m-44,0 a44,44 0 1,1 88,0 a44,44 0 1,1 -88,0"></path>
+					</defs>
+					<circle class="badge-ring" cx="60" cy="60" r="58"></circle>
+					<circle class="badge-ring" cx="60" cy="60" r="39"></circle>
+					<text>
+						<textPath href="#<?php echo esc_attr($badge_id); ?>">WEEKLY MENU · WEEKLY MENU · WEEKLY MENU · </textPath>
+					</text>
+				</svg>
+				<span class="badge-center"></span>
+			</div>
 
 			<div class="recipe-head">
 				<?php if($title): ?>

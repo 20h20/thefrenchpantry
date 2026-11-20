@@ -33,6 +33,51 @@ RECIPE (WEEKLY MENU) COMPONENT
         }
     }
 
+    // Pastille tournante « Weekly menu »
+    .recipe-badge{
+        position: absolute;
+        z-index: 2;
+        top: -2.5rem;
+        right: -0.5rem;
+        width: 5.25rem;
+        height: 5.25rem;
+        border-radius: 50%;
+        background: $colorwhite;
+
+        .badge-text{
+            display: block;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            animation: recipe-badge-spin 24s linear infinite;
+
+            .badge-ring{
+                fill: none;
+                stroke: $colorblue;
+                stroke-width: 1;
+                vector-effect: non-scaling-stroke;
+            }
+            // Ajuster letter-spacing si le texte ne boucle pas pile sur le cercle
+            text{
+                font-family: $fontprimary;
+                font-size: 11px;
+                font-weight: normal;
+                letter-spacing: 1.2px;
+                fill: $colorblue;
+            }
+        }
+        .badge-center{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0.4375rem;
+            height: 0.4375rem;
+            margin: -0.21875rem 0 0 -0.21875rem;
+            background: $coloryellow;
+            transform: rotate(45deg);
+        }
+    }
+
     .recipe-head{
         position: relative;
     }
@@ -116,11 +161,32 @@ RECIPE (WEEKLY MENU) COMPONENT
     }
 }
 
+@keyframes recipe-badge-spin {
+    from { transform: rotate(0deg); }
+    to   { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .cbo-recipe{
+        .recipe-badge{
+            .badge-text{
+                animation: none;
+            }
+        }
+    }
+}
+
 /* -------------------------------
 SMALL SCREENS
 ------------------------------- */
 @media (min-width: $screen-sm-min) {
     .cbo-recipe{
+        .recipe-badge{
+            top: -25px;
+            right: -36px;
+            width: 90px;
+            height: 90px;
+        }
         .recipe-sheet{
             padding: 3.75rem 3.75rem 3.75rem 3.75rem;
 
@@ -183,6 +249,12 @@ LARGE SCREENS
     .cbo-recipe{
         .recipe-sheet{
             padding: 5rem 4.375rem 5rem 4.375rem;
+        }
+        .recipe-badge{
+            top: -3.125rem;
+            right: 3.125rem;
+            width: 6.25rem;
+            height: 6.25rem;
         }
         .recipe-list{
             .list-el{
